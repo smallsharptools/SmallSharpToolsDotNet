@@ -1,0 +1,91 @@
+﻿<Page 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+  <Page.Resources>
+    <ResourceDictionary>
+      <XmlDataProvider x:Key="FeedData" IsAsynchronous="True" IsInitialLoadEnabled="True" 
+					Source="http://xml.weather.yahoo.com/forecastrss?p=94704"
+					XPath="/rss/channel"/>
+    </ResourceDictionary>
+  </Page.Resources>
+
+  <Border BorderBrush="Black" BorderThickness="1" Width="370" Height="170" CornerRadius="6">
+    <FlowDocumentPageViewer>
+      <FlowDocument FontFamily="Palatino Linotype" FontSize="11">
+        <Paragraph>
+          <Image Stretch="None"
+                 Source="{Binding Source={StaticResource FeedData}, XPath=image/url}" 
+                 SnapsToDevicePixels="True" />
+        </Paragraph>
+
+        <Paragraph>
+          <Hyperlink NavigateUri="{Binding Source={StaticResource FeedData}, XPath=item[1]/link}">
+            <TextBlock Text="{Binding Source={StaticResource FeedData}, XPath=title}"/>
+          </Hyperlink>
+        </Paragraph>
+
+        <Paragraph>
+          <TextBlock FontWeight="Bold" 
+                     Text="{Binding Source={StaticResource FeedData}, XPath=item[1]/title}"/>
+          <LineBreak/>
+          <TextBlock>
+            <TextBlock>
+              <TextBlock.Text>
+                <Binding Source="{StaticResource FeedData}">
+                  <Binding.XPath>
+                    item[1]/*[local-name()="condition" and
+                    namespace-uri()="http://xml.weather.yahoo.com/ns/rss/1.0"]/@text
+                  </Binding.XPath>
+                </Binding>
+              </TextBlock.Text>
+            </TextBlock>,
+            <TextBlock>
+              <TextBlock.Text>
+                <Binding Source="{StaticResource FeedData}">
+                  <Binding.XPath>
+                    item[1]/*[local-name()="condition" and
+                    namespace-uri()="http://xml.weather.yahoo.com/ns/rss/1.0"]/@temp
+                  </Binding.XPath>
+                </Binding>
+              </TextBlock.Text>
+            </TextBlock>°
+            <TextBlock>
+              <TextBlock.Text>
+                <Binding Source="{StaticResource FeedData}">
+                  <Binding.XPath>
+                    *[local-name()="units" and
+                    namespace-uri()="http://xml.weather.yahoo.com/ns/rss/1.0"]/@temperature
+                  </Binding.XPath>
+                </Binding>
+              </TextBlock.Text>
+            </TextBlock>
+            <LineBreak/>
+            Sunrise:
+            <TextBlock>
+              <TextBlock.Text>
+                <Binding Source="{StaticResource FeedData}">
+                  <Binding.XPath>
+                    *[local-name()="astronomy" and
+                    namespace-uri()="http://xml.weather.yahoo.com/ns/rss/1.0"]/@sunrise
+                  </Binding.XPath>
+                </Binding>
+              </TextBlock.Text>
+            </TextBlock>, sunset:
+          </TextBlock>
+          <TextBlock>
+            <TextBlock.Text>
+              <Binding Source="{StaticResource FeedData}">
+                <Binding.XPath>
+                  *[local-name()="astronomy" and
+                  namespace-uri()="http://xml.weather.yahoo.com/ns/rss/1.0"]/@sunset
+                </Binding.XPath>
+              </Binding>
+            </TextBlock.Text>
+          </TextBlock>
+        </Paragraph>
+
+      </FlowDocument>
+    </FlowDocumentPageViewer>
+  </Border>
+</Page>

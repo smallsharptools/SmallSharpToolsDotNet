@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet href="XmlDocComments.xsl" type="text/xsl"?>
+
+<library name="Prototype" version="1.6"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="XmlDocComments.xsd">
+
+</library>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets 
+  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>4 Get DataReader Method</Title>
+      <Shortcut>da4</Shortcut>
+      <Description>Data Access DataReader Method</Description>
+      <Author>Brennan Stehling</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Practices.EnterpriseLibrary.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>methodName</ID>
+          <ToolTip>Method Name</ToolTip>
+          <Default>GetDataReader</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>sproc</ID>
+          <ToolTip>Stored Procedure</ToolTip>
+          <Default>GetDataReader</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+          <![CDATA[
+
+    public IDataReader $methodName$()
+    {
+        IDataReader dr = null;
+
+        using (DbCommand dbCmd = db.GetStoredProcCommand("$sproc$"))
+        {
+          //db.AddInParameter(dbCmd, "@Parameter", DbType.String, String.Empty);
+          
+          dr = db.ExecuteReader(dbCmd);
+        }
+
+        //return the results
+        return dr;
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceReference>
+	<ProxyGenerationParameters
+		ServiceReferenceUri="http://localhost:8080/ServicesManager"
+		Name="ServicesManagerClient"
+		NotifyPropertyChange="False"
+		UseObservableCollection="False">
+	</ProxyGenerationParameters>
+	<EndPoints>
+		<EndPoint
+			Address="http://localhost:8080/ServicesManager"
+			BindingConfiguration="ServicesManager"
+			Contract="SmallSharpTools.Services.ServicesManagerClient.IServicesManager"
+			>
+		</EndPoint>
+	</EndPoints>
+</ServiceReference>

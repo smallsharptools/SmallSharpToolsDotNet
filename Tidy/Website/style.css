@@ -1,0 +1,39 @@
+﻿body
+{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Verdana, Sans-Serif;
+}
+
+div#Main
+{
+	margin: 3px;
+	padding: 10px;
+}
+
+div.SavedContent
+{
+	margin: 3px;
+	padding: 2px;
+}
+
+.alert
+{
+	color: Red;
+	font-size: xx-large;
+}
+
+.small
+{
+	font-size: small;
+}
+
+.regular
+{
+	font-size: medium;
+}
+
+.large
+{
+	font-size: large;
+}

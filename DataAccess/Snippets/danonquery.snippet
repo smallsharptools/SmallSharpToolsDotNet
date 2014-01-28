@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets 
+  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>5 Execute Non Query</Title>
+      <Shortcut>da5</Shortcut>
+      <Description>Data Access Non Query Method</Description>
+      <Author>Brennan Stehling</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Practices.EnterpriseLibrary.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>methodName</ID>
+          <ToolTip>Method Name</ToolTip>
+          <Default>SaveData</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>sproc</ID>
+          <ToolTip>Stored Procedure</ToolTip>
+          <Default>SaveData</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+              <![CDATA[
+
+    public void $methodName$()
+    {
+        using (DbCommand dbCmd = db.GetStoredProcCommand("$sproc$"))
+        {
+          //db.AddInParameter(dbCmd, "@Parameter", DbType.String, 0);
+          //db.AddOutParameter(dbCmd, "@Parameter2", DbType.String, 0);
+
+          db.ExecuteNonQuery(dbCmd);
+          //Object outputParameter = 
+            //db.GetParameterValue(dbCmd, "@OutputParameter");
+        }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

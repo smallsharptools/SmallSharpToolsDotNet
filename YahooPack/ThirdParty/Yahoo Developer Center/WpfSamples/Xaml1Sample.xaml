@@ -1,0 +1,16 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+    >
+  <Grid>
+    <Grid.Resources>
+      <ResourceDictionary>
+        <!-- This retrieves and provides data to controls -->
+        <XmlDataProvider x:Key="FeedData" 
+          Source="http://rss.music.yahoo.com/charts/rssTopSongs.xml"
+          XPath="/rss/channel"/>
+      </ResourceDictionary>
+    </Grid.Resources>
+  </Grid>
+</Page>

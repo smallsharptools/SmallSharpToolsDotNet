@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NoWarn Condition="'$(NoWarn)'!=''">$(NoWarn),</NoWarn>
+    <NoWarn>$(NoWarn)MSB4078</NoWarn>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PackageVersion>1.0.0</PackageVersion>
+    <PackageName>SmallSharpTools.ImageResizer-$(PackageVersion)</PackageName>
+    <ConsoleApplicationOutputDirectory>ConsoleApplication\bin\$(Configuration)</ConsoleApplicationOutputDirectory>
+    <SetupDirectory>Setup</SetupDirectory>
+    <SetupOutputDirectory>$(SetupDirectory)\$(Configuration)</SetupOutputDirectory>
+    <ZipFilename>$(PackageName)-$(Configuration).zip</ZipFilename>
+    <VisualStudio8>C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\devenv.exe</VisualStudio8>
+</PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <Target Name="Clean">
+    <RemoveDir Directories="$(ProcessorOutputDirectory)" Condition="Exists('$(ProcessorOutputDirectory)')" />
+    <RemoveDir Directories="$(SetupOutputDirectory)" Condition="Exists('$(SetupOutputDirectory)')" />
+  </Target>
+  <Target Name="Build" DependsOnTargets="Clean">
+    <MSBuild Projects="ConsoleApplication\ConsoleApplication.csproj" Targets="Build" />
+  </Target>
+  <Target Name="BuildSetup" DependsOnTargets="Clean;Build">
+    <Error Text="Visual Studio 8 is required to build Setup" Condition="!Exists('$(VisualStudio8)')" ContinueOnError="true"></Error>
+    <Exec Command="%22$(VisualStudio8)%22 Setup.vdproj /Build Release" Condition="Exists('$(VisualStudio8)')" WorkingDirectory="Setup"></Exec>
+  </Target>
+  <Target Name="PackageInstaller" DependsOnTargets="BuildSetup">
+    <Copy SourceFiles="$(SetupOutputDirectory)\Setup.msi" DestinationFiles="$(PackageName).msi"></Copy>
+    <CreateItem Include="*.txt">
+      <Output ItemName="ZipFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="*.msi">
+      <Output ItemName="ZipFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <Zip Files="@(ZipFiles)" ZipFileName="$(ZipFilename)" WorkingDirectory="$(SetupOutputDirectory)" />
+  </Target>
+</Project>

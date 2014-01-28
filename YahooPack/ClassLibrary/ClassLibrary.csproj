@@ -1,0 +1,79 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73605531-ADC9-4CDA-A9E8-C8C19E0B7142}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmallSharpTools</RootNamespace>
+    <AssemblyName>SmallSharpTools.YahooPack</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\SmallSharpTools.Logger\Release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SmallSharpTools.Logger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\SmallSharpTools.Logger\Release\SmallSharpTools.Logger.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Yahoo.Authentication, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ThirdParty\Yahoo Developer Center\Yahoo.Authentication.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YahooPack\Photos\Photo.cs" />
+    <Compile Include="YahooPack\Photos\PhotoCollection.cs" />
+    <Compile Include="YahooPack\Providers\ProviderAttributes.cs" />
+    <Compile Include="YahooPack\Providers\SqlYahooAuthenticationProvider.cs" />
+    <Compile Include="YahooPack\Providers\XmlYahooAuthenticationProvider.cs" />
+    <Compile Include="YahooPack\Providers\YahooAuthenticationProvider.cs" />
+    <Compile Include="YahooPack\Providers\YahooAuthenticationProviderConfiguration.cs" />
+    <Compile Include="YahooPack\Providers\YahooAuthenticationProviderConfigurationHandler.cs" />
+    <Compile Include="YahooPack\Providers\YahooPhotosProvider.cs" />
+    <Compile Include="YahooPack\Providers\YahooPhotosProviderConfiguration.cs" />
+    <Compile Include="YahooPack\Providers\YahooPhotosProviderConfigurationHandler.cs" />
+    <Compile Include="YahooPack\Web\Security\YahooConfiguration.cs" />
+    <Compile Include="YahooPack\Web\Security\YahooMembershipProvider.cs" />
+    <Compile Include="YahooPack\Web\Security\YahooModule.cs" />
+    <Compile Include="YahooPack\Web\Security\YahooSession.cs" />
+    <Compile Include="YahooPack\Web\UI\Controls\YahooLoginStatus.cs" />
+    <Compile Include="YahooPack\Web\UI\Controls\YahooLogoutButton.cs" />
+    <Compile Include="YahooPack\Web\UI\Controls\YahooLoginButton.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<NoWarn Condition="'$(NoWarn)'!=''">$(NoWarn),</NoWarn>
+		<NoWarn>$(NoWarn)MSB4078</NoWarn>
+		<Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+		<ApplicationName>Packer</ApplicationName>
+		<ApplicationVersion>v4.1.1</ApplicationVersion>
+
+		<Interactive Condition="'$(Interactive)' == ''">False</Interactive>
+
+	</PropertyGroup>
+	<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+	<Target Name="Clean">
+    <Message Text="Running Clean Target..." Importance="high"></Message>
+    <MSBuild Projects="ConsoleApplication\ConsoleApplication.csproj"
+				 Targets="Clean" ContinueOnError="false"></MSBuild>
+  </Target>
+	<Target Name="PreBuild">
+    <Message Text="No PreBuild Tasks"></Message>
+	</Target>
+	<Target Name="Build">
+		<Message Text="Running Build Target..." Importance="high"></Message>
+		<MSBuild Projects="ConsoleApplication\ConsoleApplication.csproj" 
+				 Targets="Build" ContinueOnError="false"></MSBuild>
+	</Target>
+	<Target Name="PostBuild">
+		<Message Text="No PostBuild Tasks"></Message>
+	</Target>
+	<Target Name="RunTests" DependsOnTargets="Build">
+		<Message Text="No Tests Tasks"></Message>
+	</Target>
+	<Target Name="Rebuild" DependsOnTargets="Clean;PreBuild;Build;PostBuild">
+		<Message Text="Full Rebuild Successful!" Importance="high"></Message>
+	</Target>
+	<Target Name="FullBuild" DependsOnTargets="Clean;PreBuild;Build;PostBuild;RunTests">
+		<Message Text="Full Build Successful!" Importance="high"></Message>
+	</Target>
+
+	<Target Name="PromptForTarget" Condition="'$(Interactive)' == 'True'">
+
+		<Message Text=" "></Message>
+		<Message Text="1) Clean" Importance="high"></Message>
+		<Message Text="2) PreBuild" Importance="high"></Message>
+		<Message Text="3) Build" Importance="high"></Message>
+		<Message Text="4) PostBuild" Importance="high"></Message>
+		<Message Text="5) RunTests" Importance="high"></Message>
+		<Message Text="6) Rebuild" Importance="high"></Message>
+		<Message Text="7) FullBuild" Importance="high"></Message>
+
+		<Prompt Text="    Enter a target:">
+			<Output TaskParameter="UserInput" PropertyName="SelectedTarget"/>
+		</Prompt>
+
+		<Message Text="Selected target is $(SelectedTarget)" Importance="high"></Message>
+
+		<MSBuild Targets="Clean" Projects="build.proj" Condition="'$(SelectedTarget)' == '1'"></MSBuild>
+		<MSBuild Targets="PreBuild" Projects="build.proj" Condition="'$(SelectedTarget)' == '2'"></MSBuild>
+		<MSBuild Targets="Build" Projects="build.proj" Condition="'$(SelectedTarget)' == '3'"></MSBuild>
+		<MSBuild Targets="PostBuild" Projects="build.proj" Condition="'$(SelectedTarget)' == '4'"></MSBuild>
+		<MSBuild Targets="RunTests" Projects="build.proj" Condition="'$(SelectedTarget)' == '5'"></MSBuild>
+		<MSBuild Targets="Rebuild" Projects="build.proj" Condition="'$(SelectedTarget)' == '6'"></MSBuild>
+		<MSBuild Targets="FullBuild" Projects="build.proj" Condition="'$(SelectedTarget)' == '7'"></MSBuild>
+	</Target>
+</Project>

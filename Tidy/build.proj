@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<Import Project="$(MSBuildExtensionsPath)\SmallSharpTools.Packer\MSBuild.Packer.Targets" />
+	<Import Project="$(MSBuildExtensionsPath)\SmallSharpTools.Tidy\MSBuild.Tidy.Targets" />
+
+	<PropertyGroup>
+		<SolutionDir Condition="'$(SolutionDir)' == ''">.</SolutionDir>
+
+		<InputDir>$(SolutionDir)\Samples\Input</InputDir>
+		<OutputDir>$(SolutionDir)\Samples\Output</OutputDir>
+	</PropertyGroup>
+	<ItemGroup>
+		<InputFiles Include="$(InputDir)\*.html" />
+	</ItemGroup>
+	<Target Name="Build" DependsOnTargets="PackJavaScript;RunTidy">
+	</Target>
+	<Target Name="PackJavaScript">
+		<Packer OutputFileName="Website\tiny_mce\tiny_mce.js"
+				InputFiles="Website\tiny_mce\tiny_mce_src.js"
+				Mode="Packer" Verbose="false" />
+		<Packer OutputFileName="Website\tiny_mce\themes\custom\editor_template.js"
+				InputFiles="Website\tiny_mce\themes\custom\editor_template_src.js"
+				Mode="Packer" Verbose="false" />
+		<Packer OutputFileName="Website\tiny_mce\themes\intermediate\editor_template.js"
+				InputFiles="Website\tiny_mce\themes\intermediate\editor_template_src.js"
+				Mode="Packer" Verbose="false" />
+
+		<!--
+		<Packer OutputFileName="Website\tiny_mce\tiny_mce.jsmin.js"
+				InputFiles="Website\tiny_mce\tiny_mce_src.js"
+				Mode="JSMin" Verbose="false" />
+		<Packer OutputFileName="Website\tiny_mce\themes\custom\editor_template.jsmin.js"
+				InputFiles="Website\tiny_mce\themes\custom\editor_template_src.js"
+				Mode="JSMin" Verbose="false" />
+		<Packer OutputFileName="Website\tiny_mce\themes\intermediate\editor_template.jsmin.js"
+				InputFiles="Website\tiny_mce\themes\intermediate\editor_template_src.js"
+				Mode="JSMin" Verbose="false" />
+		-->
+	</Target>
+	<Target Name="RunTidy">
+		<MakeDir Directories="$(OutputDir)" Condition="!Exists('$(OutputDir)')"></MakeDir>
+		<Tidy OptionFile="$(SolutionDir)\Samples\default.tidy" 
+			  ErrorFile="$(SolutionDir)\Samples\errors.txt" 
+			  InputFiles="@(InputFiles)"
+			  OutputFiles="@(InputFiles->'$(OutputDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+	</Target>
+</Project>

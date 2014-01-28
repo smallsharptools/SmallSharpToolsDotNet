@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet href="XmlDocComments.xsl" type="text/xsl"?>
+
+<library name="jQuery" version="1.2.4"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="XmlDocComments.xsd">
+
+  <classes>
+    <class name="jQuery" type="jQuery">
+      <alias name="$" />
+
+      <function name="jQuery" group="Core" isConstructor="true">
+        <summary>This function accepts a string containing a CSS selector which is then used to match a set of elements.</summary>
+        <param name="expression" type="String">string</param>
+        <param name="context" type="jQuery">jQuery</param>
+        <returns type="jQuery">jQuery</returns>
+      </function>
+
+      <function name="jQuery" group="Core" isConstructor="true">
+        <summary>Create DOM elements on-the-fly from the provided String of raw HTML.</summary>
+        <param name="html" type="String">string</param>
+        <returns type="jQuery">jQuery</returns>
+      </function>
+
+      <function name="jQuery" group="Core" isConstructor="true">
+        <summary>Wrap jQuery functionality around a single or multiple DOM Element(s).</summary>
+        <param name="elements" type="Array">Array</param>
+        <returns type="jQuery">jQuery</returns>
+      </function>
+
+      <function name="jQuery" group="Core" isConstructor="true">
+        <summary>jQuery</summary>
+        <param name="callback" type="String">string</param>
+        <returns type="jQuery">jQuery</returns>
+      </function>
+
+      <function name="show" group="Manipulation">
+        <summary>Displays each of the set of matched elements if they are hidden.</summary>
+        <param name="speed" type="int">number</param>
+        <param name="callback" type="Function">function</param>
+        <returns type="jQuery">jQuery</returns>
+      </function>
+
+      <function name="hide" group="Manipulation">
+        <summary>Hide all matched elements using a graceful animation and firing an optional callback after completion.</summary>
+        <param name="speed" type="int">number</param>
+        <param name="callback" type="Function">function</param>
+        <returns type="jQuery">jQuery</returns>
+      </function>
+
+    </class>
+  </classes>
+</library>

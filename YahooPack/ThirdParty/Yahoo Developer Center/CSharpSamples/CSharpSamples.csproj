@@ -1,0 +1,87 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF78821B-6A05-4001-91A7-FDD282D205EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yahoo.Samples.CSharp</RootNamespace>
+    <AssemblyName>Yahoo.Samples.CSharp</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Yahoo.Authentication, Version=1.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Yahoo.Authentication.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthenticatedRequest1.cs" />
+    <Compile Include="Caching1Sample.cs" />
+    <Compile Include="AuthenticatedRequest1Sample.cs" />
+    <Compile Include="Caching1.cs" />
+    <Compile Include="Caching2Sample.cs" />
+    <Compile Include="Caching2.cs" />
+    <Compile Include="BBAuth1.cs" />
+    <Compile Include="BBAuth1Sample.cs" />
+    <Compile Include="BBAuth2.cs" />
+    <Compile Include="BBAuth2Sample.cs" />
+    <Compile Include="BBAuth3.cs" />
+    <Compile Include="BBAuth3Sample.cs" />
+    <Compile Include="BBAuth4.cs" />
+    <Compile Include="BBAuth4Sample.cs" />
+    <Compile Include="Xml2.cs" />
+    <Compile Include="Xml4.cs" />
+    <Compile Include="Xml3.cs" />
+    <Compile Include="Xml1.cs" />
+    <Compile Include="Xml4Sample.cs" />
+    <Compile Include="Xml3Sample.cs" />
+    <Compile Include="Xml2Sample.cs" />
+    <Compile Include="StringGet1.cs" />
+    <Compile Include="SimplePost1.cs" />
+    <Compile Include="SimpleGet2.cs" />
+    <Compile Include="SimpleGet2Sample.cs" />
+    <Compile Include="SimpleGet1.cs" />
+    <Compile Include="Xml1Sample.cs" />
+    <Compile Include="StringGet1Sample.cs" />
+    <Compile Include="SimpleGet1Sample.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimplePost1Sample.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{767C943F-91AB-400B-871F-1AFB5E62A09A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

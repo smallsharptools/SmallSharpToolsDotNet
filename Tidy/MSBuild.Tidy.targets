@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <MSBuildTidyPath Condition="'$(MSBuildTidyPath)' == ''">$(MSBuildExtensionsPath)\SmallSharpTools.Tidy</MSBuildTidyPath>
+    <MSBuildTidyLib>$(MSBuildTidyPath)\SmallSharpTools.Tidy.dll</MSBuildTidyLib>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(MSBuildTidyLib)" TaskName="SmallSharpTools.Tidy.MSBuild.Tidy" />
+
+</Project>

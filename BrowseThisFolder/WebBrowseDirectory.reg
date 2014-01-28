@@ -1,0 +1,5 @@
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\Browse This Folder]
+@="Browse This Folder"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Folder\shell\Browse This Folder\command]
+@="C:\\Projects\\SmallSharpTools\\SmallSharpTools.BrowseThisFolder\\ConsoleApplication\\bin\\SmallSharpTools.BrowseThisFolder.exe \"%1\""

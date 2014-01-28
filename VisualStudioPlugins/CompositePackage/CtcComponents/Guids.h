@@ -1,0 +1,42 @@
+﻿// guids.h: definitions of GUIDs/IIDs/CLSIDs used in this VsPackage
+
+/*
+Do not use #pragma once, as this file needs to be included twice.  Once to declare the externs
+for the GUIDs, and again right after including initguid.h to actually define the GUIDs.
+*/
+
+
+
+// package guid
+// { a04b9669-43c9-43bf-9726-3a232bdf9659 }
+#define guidCompositePackagePkg { 0xA04B9669, 0x43C9, 0x43BF, { 0x97, 0x26, 0x3A, 0x23, 0x2B, 0xDF, 0x96, 0x59 } }
+#ifdef DEFINE_GUID
+DEFINE_GUID(CLSID_CompositePackage,
+0xA04B9669, 0x43C9, 0x43BF, 0x97, 0x26, 0x3A, 0x23, 0x2B, 0xDF, 0x96, 0x59 );
+#endif
+
+// Command set guid for our commands (used with IOleCommandTarget)
+// { 59f69402-ee9e-4bef-a721-e4d82d679c1f }
+#define guidCompositePackageCmdSet { 0x59F69402, 0xEE9E, 0x4BEF, { 0xA7, 0x21, 0xE4, 0xD8, 0x2D, 0x67, 0x9C, 0x1F } }
+#ifdef DEFINE_GUID
+DEFINE_GUID(CLSID_CompositePackageCmdSet, 
+0x59F69402, 0xEE9E, 0x4BEF, 0xA7, 0x21, 0xE4, 0xD8, 0x2D, 0x67, 0x9C, 0x1F );
+#endif
+
+
+// Guid for the Editor Factory
+// { 27e43417-df6a-40f3-9ce9-f772b9048051 }
+#define guidCompositePackageEditorFactory { 0x27E43417, 0xDF6A, 0x40F3, { 0x9C, 0xE9, 0xF7, 0x72, 0xB9, 0x4, 0x80, 0x51 } } 
+#ifdef DEFINE_GUID
+DEFINE_GUID(CLSID_CompositePackageEditorFactory, 
+0x27E43417, 0xDF6A, 0x40F3, 0x9C, 0xE9, 0xF7, 0x72, 0xB9, 0x4, 0x80, 0x51 ); 
+#endif
+
+// Guid for the Editor Document (the document is the actual editor)
+// { bbc71c4d-32f4-4869-9cde-aef572cbe8d5 }
+#define guidCompositePackageEditorDocument { 0xBBC71C4D, 0x32F4, 0x4869, { 0x9C, 0xDE, 0xAE, 0xF5, 0x72, 0xCB, 0xE8, 0xD5 } }
+#ifdef DEFINE_GUID
+DEFINE_GUID(CLSID_CompositePackageEditorDocument, 
+0xBBC71C4D, 0x32F4, 0x4869, 0x9C, 0xDE, 0xAE, 0xF5, 0x72, 0xCB, 0xE8, 0xD5 );
+#endif
+

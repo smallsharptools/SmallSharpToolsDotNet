@@ -1,0 +1,98 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0E3184F-B5BB-4BBC-BE84-75044BD166A7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Yahoo.Samples</RootNamespace>
+    <AssemblyName>SampleBrowser</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SampleBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleBrowser.Designer.cs">
+      <DependentUpon>SampleBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="SampleBrowser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SampleBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\Yahoo.Samples.Common.ISample.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="RichTextBoxWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{767C943F-91AB-400B-871F-1AFB5E62A09A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CSharpSamples\CSharpSamples.csproj">
+      <Project>{EF78821B-6A05-4001-91A7-FDD282D205EA}</Project>
+      <Name>CSharpSamples</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VBSamples\VBSamples.vbproj">
+      <Project>{AF3D9C66-C9D8-4E01-AD9A-74D6E853CA87}</Project>
+      <Name>VBSamples</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WpfSamples\WpfSamples.csproj">
+      <Project>{95E5CA37-9E85-4DC9-8F16-6665921D44D2}</Project>
+      <Name>WpfSamples</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>IF NOT EXIST "$(TargetDir)Samples" MKDIR "$(TargetDir)Samples"
+DEL "$(TargetDir)Samples\*.*"
+XCOPY "$(SolutionDir)CSharpSamples\*Sample.cs" "$(TargetDir)Samples" /Y
+XCOPY "$(SolutionDir)VBSamples\*Sample.vb" "$(TargetDir)Samples" /Y
+XCOPY "$(SolutionDir)WpfSamples\*Sample.xaml" "$(TargetDir)Samples" /Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

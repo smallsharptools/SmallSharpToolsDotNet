@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="XmlDocComments.xsl" type="text/xsl"?>
+
+<library name="JavaScript Core" version="1.4"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="XmlDocComments.xsd">
+  <classes>
+    <class name="Array" type="Array" description="">
+      
+      <function name="Array" isConstructor="true" group="Core">
+        <summary>Creates an Array</summary>
+      </function>
+
+      <function name="join" group="Core">
+        <summary>The join function can be used to join the content of an array to a single string, separated with a character of your choice. If you don’t specify one, it will use the comma by default.</summary>
+      </function>
+
+      <function name="concat" group="Core">
+        <summary>The concat function can be used to join two arrays together to one array.</summary>
+      </function>
+
+      <function name="pop" group="Core">
+        <summary>The pop function can be used to retrieve the last element of an array.</summary>
+      </function>
+
+      <function name="push" group="Core">
+        <summary>The push function can be used to add one ore more new elements to an array.</summary>
+      </function>
+
+      <function name="reverse" group="Core">
+        <summary>The reverse function can be used to reverse to order of the elements in an array. The first will become the last and the last will become the first.</summary>
+      </function>
+
+      <function name="shift" group="Core">
+        <summary>The shift function can be used to remove the first element of an array. It also returns the first element.</summary>
+      </function>
+
+      <function name="slice" group="Core">
+        <summary>The slice method can be used to create a new array from a specific range in an array. You have to define the starting position. You can also define the end position, however if you do not specify it then it will get the array position from your starting point to the end point of the array. The following example demonstrates it.</summary>
+      </function>
+
+      <function name="splice" group="Core">
+        <summary>The splice function can be used to add or remove elements of an array. You need to specify the starting position and how many elements to remove. The following example shows how to remove and add elements with that function.</summary>
+      </function>
+
+      <function name="sort" group="Core">
+        <summary>The sort function can be used to sort the elements in an array. You can also create a separate compare function to use with sort. However if you do not, then it will convert all elements to strings and sort them in dictionary order. This can cause problems when you have integers in an array and need to sort them – i.e.: 11 would come before 3.</summary>
+      </function>
+
+      <function name="unshift" group="Core">
+        <summary>The unshift function can be used to add new elements at the beginning of the array. This function only works on Netscape.</summary>
+      </function>
+      
+    </class>
+    <class name="Boolean" type="Boolean" description="">
+      <function name="Boolean" isConstructor="true" group="Core">
+        <summary>Creates a Boolean</summary>
+      </function>
+    </class>
+    <class name="Date" type="Date" description="">
+      
+      <function name="Date" isConstructor="true" group="Core">
+        <summary>Creates a Date for the current date and time</summary>
+      </function>
+
+      <function name="getDate" group="Core">
+        <summary>Returns the day of the month from a Date object (from 1-31)</summary>
+      </function>
+
+      <function name="getDay" group="Core">
+        <summary>Returns the day of the week from a Date object (from 0-6)</summary>
+      </function>
+
+      <function name="getMonth" group="Core">
+        <summary>Returns the month from a Date object (from 0-11)</summary>
+      </function>
+
+      <function name="getFullYear" group="Core">
+        <summary>Returns the year, as a four-digit number, from a Date object</summary>
+      </function>
+
+      <function name="getYear" group="Core">
+        <summary>Returns the year, as a two-digit or a four-digit number, from a Date object. Use getFullYear() instead !!</summary>
+      </function>
+
+      <function name="getHours" group="Core">
+        <summary>Returns the hour of a Date object (from 0-23)</summary>
+      </function>
+
+      <function name="getMinutes" group="Core">
+        <summary>Returns the minutes of a Date object (from 0-59)</summary>
+      </function>
+
+      <function name="getSeconds" group="Core">
+        <summary>Returns the seconds of a Date object (from 0-59)</summary>
+      </function>
+
+      <function name="getMilliseconds" group="Core">
+        <summary>Returns the milliseconds of a Date object (from 0-999)</summary>
+      </function>
+
+      <function name="getTime" group="Core">
+        <summary>Returns the number of milliseconds since midnight Jan 1, 1970</summary>
+      </function>
+
+      <function name="getTimezoneOffset" group="Core">
+        <summary>Returns the difference in minutes between local time and Greenwich Mean Time (GMT)</summary>
+      </function>
+
+      <function name="getUTCDate" group="Core">
+        <summary>Returns the day of the month from a Date object according to universal time (from 1-31)</summary>
+      </function>
+
+      <function name="getUTCDay" group="Core">
+        <summary>Returns the day of the week from a Date object according to universal time (from 0-6)</summary>
+      </function>
+
+      <function name="getUTCMonth" group="Core">
+        <summary>Returns the month from a Date object according to universal time (from 0-11)</summary>
+      </function>
+
+      <function name="getUTCFullYear" group="Core">
+        <summary>Returns the four-digit year from a Date object according to universal time</summary>
+      </function>
+
+      <function name="getUTCHours" group="Core">
+        <summary>Returns the hour of a Date object according to universal time (from 0-23)</summary>
+      </function>
+
+      <function name="getUTCMinutes" group="Core">
+        <summary>Returns the minutes of a Date object according to universal time (from 0-59)</summary>
+      </function>
+
+      <function name="getUTCSeconds" group="Core">
+        <summary>Returns the seconds of a Date object according to universal time (from 0-59)</summary>
+      </function>
+
+      <function name="getUTCMilliseconds" group="Core">
+        <summary>Returns the milliseconds of a Date object according to universal time (from 0-999)</summary>
+      </function>
+
+      <function name="parse" group="Core">
+        <summary>Takes a date string and returns the number of milliseconds since midnight of January 1, 1970</summary>
+      </function>
+
+      <function name="setDate" group="Core">
+        <summary>Sets the day of the month in a Date object (from 1-31)</summary>
+      </function>
+
+      <function name="setMonth" group="Core">
+        <summary>Sets the month in a Date object (from 0-11)</summary>
+      </function>
+
+      <function name="setFullYear" group="Core">
+        <summary>Sets the year in a Date object (four digits)</summary>
+      </function>
+
+      <function name="setYear" group="Core">
+        <summary>Sets the year in the Date object (two or four digits). Use setFullYear() instead !!</summary>
+      </function>
+
+      <function name="setHours" group="Core">
+        <summary>Sets the hour in a Date object (from 0-23)</summary>
+      </function>
+
+      <function name="setMinutes" group="Core">
+        <summary>Set the minutes in a Date object (from 0-59)</summary>
+      </function>
+
+      <function name="setSeconds" group="Core">
+        <summary>Sets the seconds in a Date object (from 0-59)</summary>
+      </function>
+
+      <function name="setMilliseconds" group="Core">
+        <summary>Sets the milliseconds in a Date object (from 0-999)</summary>
+      </function>
+
+      <function name="setTime" group="Core">
+        <summary>Calculates a date and time by adding or subtracting a specified number of milliseconds to/from midnight January 1, 1970</summary>
+      </function>
+
+      <function name="setUTCDate" group="Core">
+        <summary>Sets the day of the month in a Date object according to universal time (from 1-31)</summary>
+      </function>
+
+      <function name="setUTCMonth" group="Core">
+        <summary>Sets the month in a Date object according to universal time (from 0-11)</summary>
+      </function>
+
+      <function name="setUTCFullYear" group="Core">
+        <summary>Sets the year in a Date object according to universal time (four digits)</summary>
+      </function>
+
+      <function name="setUTCHours" group="Core">
+        <summary>Sets the hour in a Date object according to universal time (from 0-23)</summary>
+      </function>
+
+      <function name="setUTCMinutes" group="Core">
+        <summary>Set the minutes in a Date object according to universal time (from 0-59)</summary>
+      </function>
+
+      <function name="setUTCSeconds" group="Core">
+        <summary>Set the seconds in a Date object according to universal time (from 0-59)</summary>
+      </function>
+
+      <function name="setUTCMilliseconds" group="Core">
+        <summary>Sets the milliseconds in a Date object according to universal time (from 0-999)</summary>
+      </function>
+
+      <function name="toSource" group="Core">
+        <summary>Represents the source code of an object</summary>
+      </function>
+
+      <function name="toString" group="Core">
+        <summary>Converts a Date object to a string</summary>
+      </function>
+
+      <function name="toGMTString" group="Core">
+        <summary>Converts a Date object, according to Greenwich time, to a string. Use toUTCString() instead !!</summary>
+      </function>
+
+      <function name="toUTCString" group="Core">
+        <summary>Converts a Date object, according to universal time, to a string</summary>
+      </function>
+
+      <function name="toLocaleString" group="Core">
+        <summary>Converts a Date object, according to local time, to a string</summary>
+      </function>
+
+      <function name="UTC" group="Core">
+        <summary>Takes a date and returns the number of milliseconds since midnight of January 1, 1970 according to universal time</summary>
+      </function>
+
+      <function name="valueOf" group="Core">
+        <summary>Returns the primitive value of a Date object</summary>
+      </function>
+
+    </class>
+    <class name="Function" type="Function" description="">
+      <function name="Function" isConstructor="true" group="Core">
+        <summary>Creates a Function</summary>
+      </function>
+    </class>
+    <class name="Math" type="Math" description="">
+      
+      <function name="Math" isConstructor="true" group="Core">
+        <summary>Creates a Math object</summary>
+      </function>
+
+      <function name="abs">
+        <summary>the absolute value of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="acos">
+        <summary>arc cosine of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="asin">
+        <summary>arc sine of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="atan">
+        <summary>arc tangent of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="atan2">
+        <summary>arc tangent of a/b</summary>
+        <param name="a" type="Number"></param>
+        <param name="b" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="ceil">
+        <summary>integer closest to a and not less than a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="cos">
+        <summary>cosine of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="exp">
+        <summary>exponent of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="floor">
+        <summary>integer closest to and not greater than a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="log">
+        <summary>log of a base e</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="max">
+        <summary>the maximum of a and b</summary>
+        <param name="a" type="Number"></param>
+        <param name="b" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="min">
+        <summary>the minimum of a and b</summary>
+        <param name="a" type="Number"></param>
+        <param name="b" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="pow">
+        <summary>a to the power b</summary>
+        <param name="a" type="Number"></param>
+        <param name="b" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="random">
+        <summary>pseudorandom number in the range 0 to 1</summary>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="round">
+        <summary>integer closest to a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="sin">
+        <summary>sine of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="sqrt">
+        <summary>square root of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+      <function name="tan">
+        <summary>tangent of a</summary>
+        <param name="a" type="Number"></param>
+        <returns type="Number"></returns>
+      </function>
+      
+    </class>
+    <class name="Number" type="Number" description="">
+      <function name="Number" isConstructor="true" group="Core">
+        <summary>Creates a Number</summary>
+      </function>
+    </class>
+    <class name="RegExp" type="RegExp" description="">
+      <function name="RegExp" isConstructor="true" group="Core">
+        <summary>Creates a RegExp</summary>
+      </function>
+    </class>
+    <class name="String" type="String" description="">
+      <function name="String" isConstructor="true" group="Core">
+        <summary>Creates a String</summary>
+      </function>
+    </class>
+  </classes>
+</library>

@@ -1,0 +1,233 @@
+﻿//
+// This is the file that defines the actual layout and type of the commands.
+// It is divided in different sections (e.g. command definition, command
+// placement, ...), with each defining a specific set of properties.
+// See the comment before each section for more details about how to
+// use it.
+//
+
+// The CTC compiler (the tool that translates this file into the binary
+// format that VisualStudio will consume) has the ability to run a preprocessor
+// on the ctc file; this preprocessor is (usually) the C++ preprocessor, so
+// it is possible to define includes and macros with the same syntax used
+// in C++ files. Using this ability of the compiler here, we include some files
+// defining some of the constants that we will use inside the file.
+
+#include "stdidcmd.h"      // This is the file that defines the IDs for all the
+                           // commands exposed by VisualStudio.
+
+#include "vsshlids.h"      // This header contains the command ids for the menus
+                           // provided by the shell.
+
+#include "msobtnid.h"      // Definition of some CTC specific constants. In this sample
+                           // we use it for the IDs inside the guidOfficeIcon group.
+
+// Defines VK_INSERT
+#include <virtkeys.h>
+
+
+#include "CommandIds.h"      // Definition of the IDs of the commands and CTC elements
+                           // specific for this sample.
+
+#include "Resource.h"      // Definition of the IDs of the resources used by this package;
+                           // Here it is used to include the bitmap with the images used for
+                           // the commands.
+
+#include "Guids.h"         // This is the file with the definition of the Guid
+                           // specific for this sample.
+
+// shorthand macros for a more compact and manageable table
+#define OI_NOID         guidOfficeIcon:msotcidNoIcon
+#define DIS_DEF         DEFAULTDISABLED | DEFAULTINVISIBLE | DYNAMICVISIBILITY
+#define VIS_DEF         COMMANDWELLONLY
+
+
+// The CMDS_SECTION section is where we the commands, menus and menu groups are defined. 
+// This section uses a Guid to identify the package that provides the command defined 
+// inside it.
+CMDS_SECTION guidCompositePackagePkg
+
+  // Inside this section we have different sub-sections: one for the menus, another 
+  // for the menu groups, one for the buttons (the actual commands), one for the combos
+  // and the last one for the bitmaps used. Each element is identified by a command id that 
+  // is a unique pair of guid and numeric identifier; the guid part of the identifier is usually 
+  // called "command set" and is used to group different command inside a logically related 
+  // group; your package should define its own command set in order to avoid collisions 
+  // with command ids defined by other packages.
+
+  // This is the sub-section that defines the menus and toolbars.
+  MENUS_BEGIN
+  // To define an element in this group you need an ID, a parent group, a display priority,
+  // a menu type, a name and a default text.
+
+  // NewMenu                              Relative to Group                       Priority    Type        Name                    Text
+
+  // Editor Toolbar
+  guidCompositePackageCmdSet:IDM_TLB_RTF,   guidCompositePackageCmdSet:0,    0x0000,     TOOLBAR,    "CompositePackageToolbar",         "CompositePackage Toolbar";
+
+  // Editor Context Menu
+  guidCompositePackageCmdSet:IDMX_RTF,      guidCompositePackageCmdSet:0,    0x0000,     CONTEXT,    "CompositePackageContextMenu",  "CompositePackage Context Menu";
+
+  MENUS_END
+
+  // In this section you can define new menu groups. A menu group is a container for
+  // other menus or buttons (commands); from a visual point of view you can see the
+  // group as the part of a menu contained between two lines. The parent of a group
+  // must be a menu.
+  NEWGROUPS_BEGIN
+  // NewGroup                              Parent Group                            Priority
+
+  // editor menu group
+  guidCompositePackageCmdSet:IDG_RTF_EDITOR_CMDS,          guidSHLMainMenu:IDM_VS_MENU_EDIT,             0xFE00;
+
+  // toolbar groups
+  guidCompositePackageCmdSet:IDG_RTF_TLB_FONT1,            guidCompositePackageCmdSet:IDM_TLB_RTF,   0x0100;
+  guidCompositePackageCmdSet:IDG_RTF_TLB_FONT2,            guidCompositePackageCmdSet:IDM_TLB_RTF,   0x0200;
+  guidCompositePackageCmdSet:IDG_RTF_TLB_INDENT,           guidCompositePackageCmdSet:IDM_TLB_RTF,   0x0300;
+  guidCompositePackageCmdSet:IDG_RTF_TLB_BULLET,           guidCompositePackageCmdSet:IDM_TLB_RTF,   0x0400;
+  guidCompositePackageCmdSet:IDG_RTF_TLB_FONT_COMBOS,      guidCompositePackageCmdSet:IDM_TLB_RTF,   0x0040;
+
+  // context menu groups
+  guidSHLMainMenu:IDG_VS_EDIT_CUTCOPY,                         guidCompositePackageCmdSet:IDMX_RTF,      0x0100;
+  guidCompositePackageCmdSet:IDG_RTF_CTX_PROPS,            guidCompositePackageCmdSet:IDMX_RTF,      0x0200;
+  guidSharedMenuGroup:IDG_VS_FORMAT_FONTFACE,                  guidCompositePackageCmdSet:IDMX_RTF,      0x0300;
+
+  NEWGROUPS_END
+
+  // Button section.
+  // This section defines the elements the user can interact with, like a menu command or a button 
+  // or combo box in a toolbar.
+  BUTTONS_BEGIN
+  // To define a menu group you have to specify its ID, the parent menu and its display priority.
+  // Some commands are not defined as shared, so they use our package CLSID
+  // as the command set GUID. Also, by specifying blank for the FLAGS, the command is
+  // default visible and enabled. Other valid values for FLAGS are the following:
+  //    DEFAULTDISABLED, DEFAULTINVISIBLE, DYNAMICVISIBILITY, TEXTCHANGES
+  // These values for FLAGS can be or'ed together, e.g. "DEFAULTINVISIBLE | DYNAMICVISIBILITY"
+  // If you do not want an image next to your command, set the image to "guidOfficeIcon:msotcidNoIcon"
+
+  // Command                    Parent Group                Priority    Image            Type    Visibility        
+
+
+		guidCompositePackageCmdSet:commandIDStrike,       guidSharedMenuGroup:IDG_VS_FORMAT_FONTFACE,     0x0400,     guidOfficeIcon:msotcidStrikethrough,    BUTTON, DIS_DEF,    "&Strike-through",  "&Strike-through"   "Strikes through text"      "Strike-through";
+
+  BUTTONS_END
+
+  // The bitmaps section is used to define the bitmaps that are used for the commands.
+  BITMAPS_BEGIN
+  // The bitmap id is defined in a way that is a little bit different from the others:
+  // the declaration starts with a guid for the bitmap strip, then there is the resource id of the
+  // bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
+  // inside a button definition. An important aspect of this declaration is that the element id
+  // must be the actual index (1-based) of the bitmap inside the bitmap strip.
+
+  // Bitmap                          Bitmap Index, Bitmap Index, ...
+  guidCompositePackageCmdSet:IDB_MENU_IMAGES,    bmpPic1, bmpPic2, bmpPicSmile, bmpPicX, bmpPicArrows;
+  BITMAPS_END
+
+CMDS_END
+
+// Within this section you can specify the set of commands defined somewhere else that your 
+// packages uses; for instance if your package uses the standard ‘Copy’ command, you don’t 
+// need to define it, because it is defined by the shell, but you have to use this section 
+// of the CTC file to notify the shell that your package uses it using this section.
+//
+// Note that with combo boxes we have effectively two commands in one. Below
+// we have two pairs of commands; 1st pair commandIDFontName and commandIDFontNameHandler,
+// 2nd pair commandIDFontSize and commandIDFontSizeHandler. Note that:
+//	- commandIDFontName and commandIDFontSize handle the displaying and setting
+//		of the font name and font size respectively
+//	- commandIDFontNameHandler and commandIDFontSizeHandler fill the drop down menus
+//		with the available font names and font sizes respectively
+//
+// Note also that VS will call QueryStatus only on commandIDFontName and 
+// commandIDFontSize, but not on cmdFontNameHandler and commandIDFontSizeHandler whereas
+// Exec will be called on all four commands.
+// Note also that Exec will be called for commandIDFontName and commandIDFontSize for
+// two cases; first to get the current font name or size and second to
+// set the font name or size whereas the Exec call for commandIDFontNameHandler and 
+// commandIDFontSizeHandler always has the same meaning - fill the drop down menu.
+// Finally note that placement for the combo boxes is defined in the combo
+// section below by the priority and not in the CMDPLACEMENT_SECTION.
+CMDUSED_SECTION
+
+  guidVSStd97:cmdidBold;
+  guidVSStd97:cmdidItalic;
+  guidVSStd97:cmdidUnderline;
+  guidVSStd97:cmdidJustifyLeft;
+  guidVSStd97:cmdidJustifyCenter;
+  guidVSStd97:cmdidJustifyRight;
+  guidVSStd97:cmdidFontName;
+  guidVSStd97:cmdidFontSize;
+  guidVSStd97:cmdidCut;
+  guidVSStd97:cmdidCopy;
+  guidVSStd97:cmdidPaste;
+  guidVSStd97:cmdidDelete;
+  guidVSStd2K:ECMD_INSERT;
+  guidVSStd2K:ECMD_BULLETEDLIST;
+
+CMDUSED_END
+
+// Inside this section, we have the ability to place menu groups inside some other menu or
+// menu / commands inside other groups.
+// For instance, it is possible to place one of VisualStudio's menus or commands inside one of our 
+// groups or one of our groups inside a menu defined somewhere else.
+CMDPLACEMENT_SECTION
+  // Command                             Group                                Priority
+
+  // Editor Toolbar
+  guidVSStd97:cmdidFontName,                      guidCompositePackageCmdSet:IDG_RTF_TLB_FONT_COMBOS,      0x0100;
+  guidVSStd97:cmdidFontSize,                      guidCompositePackageCmdSet:IDG_RTF_TLB_FONT_COMBOS,      0x0200;
+  guidVSStd97:cmdidBold,                          guidCompositePackageCmdSet:IDG_RTF_TLB_FONT1,            0x0100;
+  guidVSStd97:cmdidItalic,                        guidCompositePackageCmdSet:IDG_RTF_TLB_FONT1,            0x0200;
+  guidVSStd97:cmdidUnderline,                     guidCompositePackageCmdSet:IDG_RTF_TLB_FONT1,            0x0300;
+  guidCompositePackageCmdSet:commandIDStrike, 	  guidCompositePackageCmdSet:IDG_RTF_TLB_FONT1,            0x0400;
+  guidVSStd97:cmdidJustifyLeft,                   guidCompositePackageCmdSet:IDG_RTF_TLB_INDENT,           0x0100;
+  guidVSStd97:cmdidJustifyCenter,                 guidCompositePackageCmdSet:IDG_RTF_TLB_INDENT,           0x0200;
+  guidVSStd97:cmdidJustifyRight,                  guidCompositePackageCmdSet:IDG_RTF_TLB_INDENT,           0x0300;
+  guidVSStd2K:ECMD_BULLETEDLIST,                  guidCompositePackageCmdSet:IDG_RTF_TLB_BULLET,           0x0100;
+
+  // Editor context menu
+  guidVSStd2K:ECMD_BULLETEDLIST,                  guidCompositePackageCmdSet:IDG_RTF_CTX_PROPS,            0x0100;
+
+CMDPLACEMENT_END
+
+
+VISIBILITY_SECTION
+  // Command                          GUID when visible
+
+  guidCompositePackageCmdSet:IDM_TLB_RTF,		guidCompositePackageEditorFactory;
+
+VISIBILITY_END
+
+// This section is where you can associate a command with a keyboard shortcut; this association is 
+// valid within a specific UI context, that is when the shell is inside a specific mode, e.g. during 
+// debugging, editing a file or when the user is using a specific designer.
+KEYBINDINGS_SECTION
+  // To define a binding, you have to specify the sequence of keys to press to activate the command 
+  // (keystate); the syntax to use is <key>[:<special keys>] where the special keys section can be 
+  // empty. The accepted special keys and their representation are:
+  //   Alt - A
+  //   Control - C
+  //   Shift - S
+  //   Windows Key - W
+  // For example, if you want to define a binding for <Control>C the definition will be 'C':C; if the 
+  // binding is <Control><Alt>C, then the keybinding is 'C':AC.
+  //
+  // Notice that Visual Studio has a lot of components and commands, so it can be difficult to find a 
+  // key binding not used by somebody else; if the key bindings are conflicting only one will be used
+  // and one problem is that the shell will not inform the user that a conflict was found. The only 
+  // way to detect the problem is to start Visual Studio under debugger, try to execute any command 
+  // and look if there is a message in the output window about a duplicated accelerator found.
+
+  // Command                        when available          emulation               keystate
+
+  guidVSStd97:cmdidBold,            guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, 'B':C;
+  guidVSStd97:cmdidItalic,          guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, 'I':C;
+  guidVSStd97:cmdidUnderline,       guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, 'U':C;
+  guidVSStd97:cmdidJustifyLeft,     guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, 'L':C;
+  guidVSStd97:cmdidJustifyCenter,   guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, 'E':C;
+  guidVSStd97:cmdidJustifyRight,    guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, 'R':C;
+  guidVSStd2K:ECMD_INSERT,          guidCompositePackageEditorFactory, guidCompositePackageEditorFactory, VK_INSERT:;
+
+KEYBINDINGS_END

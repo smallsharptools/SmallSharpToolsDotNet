@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NoWarn Condition="'$(NoWarn)'!=''">$(NoWarn),</NoWarn>
+    <NoWarn>$(NoWarn)MSB4078</NoWarn>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PackageName>SmallSharpTools.UrlMapper</PackageName>
+    <ClassLibraryOutputDirectory>ClassLibrary\bin\$(Configuration)</ClassLibraryOutputDirectory>
+    <WebsiteDirectory>Website</WebsiteDirectory>
+    <ThirdPartyDirectory>ThirdParty</ThirdPartyDirectory>
+    <AssembliesFilename>Assemblies.zip</AssembliesFilename>
+    <WebsiteFilename>Website.zip</WebsiteFilename>
+    <ThirdPartyFilename>ThirdParty.zip</ThirdPartyFilename>
+    <ZipFilename>$(PackageName)-$(Configuration).zip</ZipFilename>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyFiles Include="$(ClassLibraryOutputDirectory)\**\*.*" Exclude="*.zip" />
+    <WebsiteFiles  Include="$(WebsiteDirectory)\**\*.*" Exclude="**\_svn\**\*.*" />
+    <ThirdPartyFiles  Include="$(ThirdPartyDirectory)\**\*.*" Exclude="**\_svn\**\*.*" />
+    <ZipFiles Include="$(AssembliesFilename)" />
+    <ZipFiles Include="$(WebsiteFilename)" />
+    <ZipFiles Include="$(ThirdPartyFilename)" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <Target Name="Clean">
+    <RemoveDir Directories="$(ClassLibraryOutputDirectory)" Condition="Exists('$(ClassLibraryOutputDirectory)')" />
+    <MSBuild Projects="ClassLibrary\ClassLibrary.csproj" Targets="Clean" />
+  </Target>
+  <Target Name="Build" DependsOnTargets="Clean">
+    <MSBuild Projects="ClassLibrary\ClassLibrary.csproj" />
+  </Target>
+  <Target Name="Package">
+    <Zip Files="@(AssemblyFiles)" ZipFileName="$(AssembliesFilename)" WorkingDirectory="$(ClassLibraryOutputDirectory)" />
+    <Zip Files="@(WebsiteFiles)" ZipFileName="$(WebsiteFilename)" WorkingDirectory="$(WebsiteDirectory)" />
+    <Zip Files="@(ThirdPartyFiles)" ZipFileName="$(ThirdPartyFilename)" WorkingDirectory="$(ThirdPartyDirectory)" />
+    <Zip Files="@(ZipFiles)" ZipFileName="$(ZipFilename)" />
+    <Delete Files="$(AssembliesFilename)" Condition ="Exists('$(AssembliesFilename)')" />
+    <Delete Files="$(WebsiteFilename)" Condition ="Exists('$(WebsiteFilename)')" />
+    <Delete Files="$(ThirdPartyFilename)" Condition ="Exists('$(ThirdPartyFilename)')" />
+  </Target>
+</Project>

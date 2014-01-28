@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="composite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="types" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="type">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="properties" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="add" minOccurs="0">
+                            <xs:complexType>
+                              <xs:attribute name="name" type="xs:string" use="required" />
+                              <xs:attribute name="isReadOnly" type="xs:boolean" use="optional" />
+                              <xs:attribute name="isHidden" type="xs:boolean" use="optional" />
+                              <xs:attribute name="alias" type="xs:string" use="optional" />
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="className" type="xs:string" use="required" />
+                  <xs:attribute name="namespace" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="rootNamespace" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

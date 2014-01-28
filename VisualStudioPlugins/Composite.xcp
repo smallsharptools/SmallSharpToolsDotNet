@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<composite rootNamespace="Sample">
+  <types>
+    <type name="Summary" className="SummaryDataContract" namespace="Sample.DataContracts">
+      <properties>
+        <add name="ID" isReadOnly="true" />
+        <add name="Created" isReadOnly="true" />
+        <add name="Modified" isReadOnly="true" />
+        <add name="Email" isHidden="true" />
+      </properties>
+    </type>
+    <type name="Detail" className="DetailDataContract" namespace="Sample.DataContracts">
+      <properties>
+        <add name="ID" alias="DetailID" isReadOnly="true" />
+        <add name="Created" alias="DetailCreated" isReadOnly="true" />
+        <add name="Modified" alias="DetailModified" isReadOnly="true" />
+        <add name="Notes" isHidden="true" />
+      </properties>
+    </type>
+  </types>
+</composite>

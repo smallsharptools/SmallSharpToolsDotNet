@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A23239E0-8F1B-429F-81E9-C153F91D736E}"
+	ProjectSection(SolutionItems) = preProject
+		build.proj = build.proj
+		Composite.xsd = Composite.xsd
+		Composite.xsx = Composite.xsx
+		README.txt = README.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeLibrary", "CompositeLibrary\CompositeLibrary.csproj", "{4EA5199F-5EB0-401A-87E7-522C2D3D616E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeCustomTool", "CompositeCustomTool\CompositeCustomTool.csproj", "{6361B19A-4CE9-4761-8FA7-37EEAF3F8019}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{42F4EB0E-3EF7-40A2-8F4B-E28A413B487A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePackage", "CompositePackage\CompositePackage.csproj", "{826A198F-87E5-49F6-AEDD-419FFC2DA106}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{2A0D16BA-7D1D-4737-86B0-DAB1A6A9E178}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VisualStudio", "VisualStudio", "{7DB21813-B2A8-4E15-A074-61664BF085C4}"
+	ProjectSection(SolutionItems) = preProject
+		ThirdParty\VisualStudio\Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll = ThirdParty\VisualStudio\Microsoft.VisualStudio.BaseCodeGeneratorWithSite.dll
+		ThirdParty\VisualStudio\ReadMe.txt = ThirdParty\VisualStudio\ReadMe.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EA5199F-5EB0-401A-87E7-522C2D3D616E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA5199F-5EB0-401A-87E7-522C2D3D616E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA5199F-5EB0-401A-87E7-522C2D3D616E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA5199F-5EB0-401A-87E7-522C2D3D616E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6361B19A-4CE9-4761-8FA7-37EEAF3F8019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6361B19A-4CE9-4761-8FA7-37EEAF3F8019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6361B19A-4CE9-4761-8FA7-37EEAF3F8019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6361B19A-4CE9-4761-8FA7-37EEAF3F8019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F4EB0E-3EF7-40A2-8F4B-E28A413B487A}.Debug|Any CPU.ActiveCfg = Debug
+		{42F4EB0E-3EF7-40A2-8F4B-E28A413B487A}.Release|Any CPU.ActiveCfg = Release
+		{826A198F-87E5-49F6-AEDD-419FFC2DA106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826A198F-87E5-49F6-AEDD-419FFC2DA106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826A198F-87E5-49F6-AEDD-419FFC2DA106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826A198F-87E5-49F6-AEDD-419FFC2DA106}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A0D16BA-7D1D-4737-86B0-DAB1A6A9E178} = {A23239E0-8F1B-429F-81E9-C153F91D736E}
+		{7DB21813-B2A8-4E15-A074-61664BF085C4} = {2A0D16BA-7D1D-4737-86B0-DAB1A6A9E178}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = 
+	EndGlobalSection
+EndGlobal

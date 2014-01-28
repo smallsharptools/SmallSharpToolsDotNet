@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>1 Type Declarations</Title>
+      <Shortcut>da1</Shortcut>
+      <Description>Data Access Types</Description>
+      <Author>Brennan Stehling</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <References>
+        <Reference>
+          <Assembly>Microsoft.Practices.EnterpriseLibrary.Common.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>Microsoft.Practices.EnterpriseLibrary.Data.dll</Assembly>
+        </Reference>
+        <Reference>
+          <Assembly>Microsoft.Practices.ObjectBuilder.dll</Assembly>
+        </Reference>
+      </References>
+      <Imports>
+        <Import>
+          <Namespace>System.Data</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Data.Common</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Microsoft.Practices.EnterpriseLibrary.Data</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="type decl" Delimiter="$">
+    private Database db;
+
+</Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

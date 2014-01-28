@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- Sample XML Doc Comments format -->
+<library name="" version="">
+
+  <dependencies>
+    <add name="" version="" />
+    <add name="" />
+  </dependencies>
+
+  <references>
+    <add name=""/>
+    <add path="" name=""/>
+    <add path="" />
+    <add path="" assembly="" name=""/>
+    <add assembly="" name=""/>
+  </references>
+
+  <classes>
+
+    <!-- empty for a namespace -->
+    <class name="" type="" description="">
+    </class>
+
+    <!-- empty for a namespace -->
+    <class name="" type="" description="">
+    </class>
+
+    <class name="" type="" description="">
+      <alias name="" />
+
+      <value name="" type=""></value>
+      <value name=""
+          type="" integer="true" domElement="true"
+          mayBeNull="true" elementType=""
+          elementInteger="true" elementDomElement="true"
+          elementMayBeNull="true"
+          locid=""></value>
+      <value name=""
+          type="" integer="false" domElement="false"
+          mayBeNull="false" elementType=""
+          elementInteger="false" elementDomElement="false"
+          elementMayBeNull="false"
+          locid=""></value>
+
+      <field name="" type=""></field>
+      <field name="" type=""
+          integer="true" domElement="true" mayBeNull="true"
+          elementType="" elementInteger="true"
+          elementDomElement="true" elementMayBeNull="true"
+          locid=""></field>
+      <field name="" type=""
+          integer="false" domElement="false" mayBeNull="false"
+          elementType="" elementInteger="false"
+          elementDomElement="false" elementMayBeNull="false"
+          locid=""></field>
+      
+      <function group="" isConstructor="true">
+        <summary locid=""></summary>
+        <param name="" type="String" mayBeNull="false" optional="false">string</param>
+        <param name="" type="Array">list</param>
+        <returns type="Array">list</returns>
+      </function>
+
+      <function group="" isConstructor="true">
+        <summary locid="">123</summary>
+        <param name="" type="String" mayBeNull="true" optional="true">string</param>
+        <param name="" type="Array">list</param>
+        <returns
+            type="" integer="false" domElement="false"
+            mayBeNull="false" elementType=""
+            elementInteger="false" elementDomElement="false"
+            elementMayBeNull="false"></returns>
+      </function>
+
+      <function group="" isConstructor="true">
+        <summary locid=""></summary>
+        <param name="" type="String"
+               mayBeNull="true" optional="true"
+               integer="false" domElement="false"
+               elementType="" elementInteger="false"
+               elementDomElement="false"
+               elementMayBeNull="false">string</param>
+        <param name="" type="Array">list</param>
+        <returns
+            type="" integer="true" domElement="true"
+            mayBeNull="true" elementType=""
+            elementInteger="true" elementDomElement="true"
+            elementMayBeNull="true"></returns>
+      </function>
+
+      <function group="" isConstructor="true">
+        <summary locid=""></summary>
+        <param name="" type="String"
+               mayBeNull="false" optional="false"
+               integer="true" domElement="true"
+               elementType="" elementInteger="true"
+               elementDomElement="true"
+               elementMayBeNull="true">string</param>
+        <param name="" type="Array">list</param>
+        <returns type="Array">list</returns>
+      </function>
+
+      <function name="" group="">
+        <summary></summary>
+        <param name="x" type="int">x</param>
+        <returns type="object">object</returns>
+      </function>
+
+      <function name="" group="">
+        <summary locid="">123</summary>
+        <returns type="object">object</returns>
+      </function>
+
+      <function name="" group="">
+        <summary></summary>
+      </function>
+
+    </class>
+
+    <class name="" type="">
+
+      <function group="" isConstructor="true">
+        <summary></summary>
+        <returns type="Array">list</returns>
+      </function>
+
+      <function group="" isConstructor="true">
+        <summary></summary>
+      </function>
+
+      <function name="" group="">
+        <summary></summary>
+        <param name="x" type="int">x</param>
+        <returns type="object">object</returns>
+      </function>
+
+      <function name="" group="">
+        <summary></summary>
+        <returns type="object">object</returns>
+      </function>
+
+      <function name="" group="">
+        <summary></summary>
+      </function>
+
+    </class>
+
+  </classes>
+</library>

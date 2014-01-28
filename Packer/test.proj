@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--<Import Project="$(MSBuildExtensionsPath)\SmallSharpTools.Packer\MSBuild.Packer.Targets" />-->
+  <PropertyGroup>
+    <MSBuildPackerPath Condition="'$(MSBuildPackerPath)' == ''">.\ClassLibrary\bin\Debug</MSBuildPackerPath>
+    <MSBuildPackerLib>$(MSBuildPackerPath)\SmallSharpTools.Packer.dll</MSBuildPackerLib>
+  </PropertyGroup>
+
+  <UsingTask AssemblyFile="$(MSBuildPackerLib)" TaskName="SmallSharpTools.Packer.MSBuild.Packer" />
+  <UsingTask AssemblyFile="$(MSBuildPackerLib)" TaskName="SmallSharpTools.Packer.MSBuild.UpdateWebConfig" />
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Environment Condition=" '$(Environment)' == '' ">Production</Environment>
+    
+    <SampleFilesDir>.\Sample Files</SampleFilesDir>
+    <PackerOutputFileName>$(SampleFilesDir)\Output\packer.output.js</PackerOutputFileName>
+    <JSMinOutputFileName>$(SampleFilesDir)\Output\jsmin.output.js</JSMinOutputFileName>
+    <CSSMinOutputFileName>$(SampleFilesDir)\Output\sample.output.css</CSSMinOutputFileName>
+    <CSSMinOutputFileName2>$(SampleFilesDir)\Output\sample2.output.css</CSSMinOutputFileName2>
+    <CSSMinOutputFileName3>$(SampleFilesDir)\Output\sample3.output.css</CSSMinOutputFileName3>
+    <CSSMinOutputFileName4>$(SampleFilesDir)\Output\sample4.output.css</CSSMinOutputFileName4>
+    <CombineOutputFileName>$(SampleFilesDir)\Output\combine.output.css</CombineOutputFileName>
+
+    <WebConfigPath>$(SampleFilesDir)\Web.config</WebConfigPath>
+    <WebConfigOutputPath>$(SampleFilesDir)\Output\Web.config</WebConfigOutputPath>
+
+    <!-- Development -->
+    <AppSettings Condition=" '$(Environment)' == 'Development' ">
+      Environment = Development;
+    </AppSettings>
+
+    <!-- Staging -->
+    <AppSettings Condition=" '$(Environment)' == 'Staging' ">
+      Environment = Staging;
+      SSL.Enabled = false;
+    </AppSettings>
+
+    <!-- Production -->
+    <AppSettings Condition=" '$(Environment)' == 'Production' ">
+      Environment = Production;
+      SSL.Enabled = true;
+      SSL.Host = https://www.acme.com
+    </AppSettings>
+  </PropertyGroup>
+
+  <Target Name="Test">    
+    <CreateItem Include="$(SampleFilesDir)\sample.js">
+      <Output ItemName="JSInputFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\sample2.js">
+      <Output ItemName="JSInputFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\sample3.js">
+      <Output ItemName="JSInputFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\sample.css">
+      <Output ItemName="CSSInputFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\sample2.css">
+      <Output ItemName="CSSInputFiles2" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\sample3.css">
+      <Output ItemName="CSSInputFiles3" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\*.css">
+      <Output ItemName="CSSInputFiles4" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(SampleFilesDir)\*.css">
+      <Output ItemName="CombineInputFiles" TaskParameter="Include"/>
+    </CreateItem>
+
+    <Message Text="JSInputFiles" />
+    <Message Text="@(JSInputFiles)" />
+
+    <Packer OutputFileName="$(PackerOutputFileName)" Mode="Packer" InputFiles="@(JSInputFiles)" Verbose="true" />
+    <Packer OutputFileName="$(JSMinOutputFileName)" Mode="JSMin" InputFiles="@(JSInputFiles)" Verbose="true" />
+    <Packer OutputFileName="$(CSSMinOutputFileName)" Mode="CSSMin" InputFiles="@(CSSInputFiles)" Verbose="true" />
+    <Packer OutputFileName="$(CSSMinOutputFileName2)" Mode="CSSMin" InputFiles="@(CSSInputFiles2)" Verbose="true" />
+    <Packer OutputFileName="$(CSSMinOutputFileName3)" Mode="CSSMin" InputFiles="@(CSSInputFiles3)" Verbose="true" />
+    <Packer OutputFileName="$(CSSMinOutputFileName4)" Mode="CSSMin" InputFiles="@(CSSInputFiles4)" Verbose="true" />
+    <Packer OutputFileName="$(CombineOutputFileName)" Mode="Combine" InputFiles="@(CombineInputFiles)" Verbose="true" />
+
+    <!-- Development -->
+    <UpdateWebConfig Condition=" '$(Environment)' == 'Development' "
+        WebConfigPath="$(WebConfigPath)"
+        OutputPath="$(WebConfigOutputPath)"
+        ConnectionStringConfigSource="$(ConnectionStringConfigSource)"
+        AppSettings="$(AppSettings)"
+        Debug="true"
+        CustomErrorsMode="Off"
+        MailHost="localhost"/>
+
+    <!-- Staging -->
+    <UpdateWebConfig Condition=" '$(Environment)' == 'Staging' "
+        Verbose="true"
+        WebConfigPath="$(WebConfigPath)"
+        OutputPath="$(WebConfigOutputPath)"
+        ConnectionStringConfigSource="Configurations\\connectionStrings-staging.config"
+        AppSettings="$(AppSettings)"
+        Debug="false"
+        CustomErrorsMode="Remote"
+        MailHost="staging.acme.com"/>
+
+    <!-- Production -->
+    <UpdateWebConfig Condition=" '$(Environment)' == 'Production' "
+        Verbose="false"
+        WebConfigPath="$(WebConfigPath)"
+        OutputPath="$(WebConfigOutputPath)"
+        ConnectionStringConfigSource="Configurations\\connectionStrings-production.config"
+        AppSettings="$(AppSettings)"
+        Debug="false"
+        CustomErrorsMode="On"
+        MailHost="mail.acme.com"/>
+  </Target>
+</Project>

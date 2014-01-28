@@ -1,0 +1,71 @@
+﻿body
+{
+	margin: 0;
+	padding: 0;
+	font-family: arial, verdana, san-serif;
+	font-size: 12pt;
+	background: #ddd;
+}
+h1,h2,h3,h4,p,div,span
+{
+	margin: 0;
+	padding: 0;
+}
+h1
+{
+	font-size: 2.5em;
+	background: #f6f6f6;
+	padding: 5px;
+	border: 1px solid #999;
+	margin-bottom: 30px;
+}
+h2
+{
+	font-size: 1.3em;
+	background: #f6f6f6;
+	border: 1px solid #999;
+	padding: 3px;
+	margin: 0 0 15px 0;
+}
+h3
+{
+	font-size: 1.1em;
+}
+h4
+{
+	font-size: 1.0em;
+}
+ul
+{
+	margin: 0 5px;
+	list-style-type: circle;
+}
+ul li
+{
+	margin-left: 12px;
+	padding-left: 0;
+}
+
+/* End general, start Specifics */
+
+div#Main
+{
+	margin: 0;
+	padding: 5px;
+}
+div.classes
+{
+	padding: 3px;
+	border-bottom: 1px solid #000;
+}
+div.class div.summary
+{
+	padding: 5px 0;
+}
+div.function
+{
+	margin-bottom: 20px;
+	padding-bottom: 50px;
+	border-bottom: 1px solid #000;
+	min-height: 200px;
+}

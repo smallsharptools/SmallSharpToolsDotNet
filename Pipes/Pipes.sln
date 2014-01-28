@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE381847-8550-4DB4-98B4-2F0BD8DA0092}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+		README.txt = README.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallSharpTools.Pipes", "SmallSharpTools.Pipes\SmallSharpTools.Pipes.csproj", "{3EE6ECF7-4B8B-4106-9C0E-9EFEDC01C274}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Third Party", "Third Party", "{EC06C665-588C-4A39-856C-267B5D94901F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tweetsharp", "tweetsharp", "{5508F92C-996B-40BE-9EBA-5B8FA78A7066}"
+	ProjectSection(SolutionItems) = preProject
+		Third Party\tweetsharp\Dimebrain.TweetSharp.dll = Third Party\tweetsharp\Dimebrain.TweetSharp.dll
+		Third Party\tweetsharp\Dimebrain.TweetSharp.xml = Third Party\tweetsharp\Dimebrain.TweetSharp.xml
+		Third Party\tweetsharp\Newtonsoft.Json.dll = Third Party\tweetsharp\Newtonsoft.Json.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntLib4.1", "EntLib4.1", "{25E31A80-B9C9-4C56-B3AB-FDB4D43A1A2D}"
+	ProjectSection(SolutionItems) = preProject
+		Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Common.dll = Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Common.XML = Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Common.XML
+		Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.dll = Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.dll
+		Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.XML = Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Design.XML
+		Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.dll = Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.dll
+		Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.XML = Third Party\EntLib4.1\Microsoft.Practices.EnterpriseLibrary.Data.XML
+		Third Party\EntLib4.1\Microsoft.Practices.ObjectBuilder2.dll = Third Party\EntLib4.1\Microsoft.Practices.ObjectBuilder2.dll
+		Third Party\EntLib4.1\Microsoft.Practices.ObjectBuilder2.xml = Third Party\EntLib4.1\Microsoft.Practices.ObjectBuilder2.xml
+		Third Party\EntLib4.1\Microsoft.Practices.Unity.Configuration.dll = Third Party\EntLib4.1\Microsoft.Practices.Unity.Configuration.dll
+		Third Party\EntLib4.1\Microsoft.Practices.Unity.Configuration.xml = Third Party\EntLib4.1\Microsoft.Practices.Unity.Configuration.xml
+		Third Party\EntLib4.1\Microsoft.Practices.Unity.dll = Third Party\EntLib4.1\Microsoft.Practices.Unity.dll
+		Third Party\EntLib4.1\Microsoft.Practices.Unity.xml = Third Party\EntLib4.1\Microsoft.Practices.Unity.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallSharpTools.Pipes.Twitter", "SmallSharpTools.Pipes.Twitter\SmallSharpTools.Pipes.Twitter.csproj", "{BB34253A-0B11-4286-87EA-103417C25559}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{F68CFD8F-1B86-4B98-9EF5-C1773AA2E6B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmallSharpTools.Pipes.Logger", "SmallSharpTools.Pipes.Logger\SmallSharpTools.Pipes.Logger.csproj", "{D2B5D2E7-54C5-443C-97C4-52319B289BC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EE6ECF7-4B8B-4106-9C0E-9EFEDC01C274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE6ECF7-4B8B-4106-9C0E-9EFEDC01C274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE6ECF7-4B8B-4106-9C0E-9EFEDC01C274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE6ECF7-4B8B-4106-9C0E-9EFEDC01C274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB34253A-0B11-4286-87EA-103417C25559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB34253A-0B11-4286-87EA-103417C25559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB34253A-0B11-4286-87EA-103417C25559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB34253A-0B11-4286-87EA-103417C25559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68CFD8F-1B86-4B98-9EF5-C1773AA2E6B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68CFD8F-1B86-4B98-9EF5-C1773AA2E6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68CFD8F-1B86-4B98-9EF5-C1773AA2E6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68CFD8F-1B86-4B98-9EF5-C1773AA2E6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2B5D2E7-54C5-443C-97C4-52319B289BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2B5D2E7-54C5-443C-97C4-52319B289BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2B5D2E7-54C5-443C-97C4-52319B289BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2B5D2E7-54C5-443C-97C4-52319B289BC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC06C665-588C-4A39-856C-267B5D94901F} = {FE381847-8550-4DB4-98B4-2F0BD8DA0092}
+		{5508F92C-996B-40BE-9EBA-5B8FA78A7066} = {EC06C665-588C-4A39-856C-267B5D94901F}
+		{25E31A80-B9C9-4C56-B3AB-FDB4D43A1A2D} = {EC06C665-588C-4A39-856C-267B5D94901F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

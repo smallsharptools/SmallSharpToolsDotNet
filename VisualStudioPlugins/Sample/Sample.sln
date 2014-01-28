@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContracts", "DataContracts\DataContracts.csproj", "{9EFF7C40-E9A3-438C-8E88-91FD8E2BEB40}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLibrary", "SampleLibrary\SampleLibrary.csproj", "{7C63A811-758F-4F89-9A35-5196A9DFBBA5}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EFF7C40-E9A3-438C-8E88-91FD8E2BEB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EFF7C40-E9A3-438C-8E88-91FD8E2BEB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EFF7C40-E9A3-438C-8E88-91FD8E2BEB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EFF7C40-E9A3-438C-8E88-91FD8E2BEB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C63A811-758F-4F89-9A35-5196A9DFBBA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C63A811-758F-4F89-9A35-5196A9DFBBA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C63A811-758F-4F89-9A35-5196A9DFBBA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C63A811-758F-4F89-9A35-5196A9DFBBA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

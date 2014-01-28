@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets 
+  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>3 Get DataSet Method</Title>
+      <Shortcut>da3</Shortcut>
+      <Description>Data Access DataSet Method</Description>
+      <Author>Brennan Stehling</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Practices.EnterpriseLibrary.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>methodName</ID>
+          <ToolTip>Method Name</ToolTip>
+          <Default>GetDataSet</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>sproc</ID>
+          <ToolTip>Stored Procedure</ToolTip>
+          <Default>GetDataSet</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+          <![CDATA[
+
+    public DataSet $methodName$()
+    {
+        DataSet ds = new DataSet();
+
+        using (DbCommand dbCmd = db.GetStoredProcCommand("$sproc$"))
+        {
+          //db.AddInParameter(dbCmd, "@Parameter1", DbType.String, String.Empty);
+          //db.AddOutParameter(dbCmd, "@Parameter2", DbType.String, 0);
+
+          ds = db.ExecuteDataSet(dbCmd);
+          //Object outputParameter = 
+            //db.GetParameterValue(dbCmd, "@OutputParameter");
+        }
+
+        //return the results
+        return ds;
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets> 

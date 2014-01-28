@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets 
+  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>2 Database Creation</Title>
+      <Shortcut>da2</Shortcut>
+      <Description>Data Access Database Creation</Description>
+      <Author>Brennan Stehling</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Practices.EnterpriseLibrary.Data</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>connectionStringName</ID>
+          <ToolTip>Connection String Name</ToolTip>
+          <Default>db</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[
+      db = DatabaseFactory.CreateDatabase("$connectionStringName$");
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

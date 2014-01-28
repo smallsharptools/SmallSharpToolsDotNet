@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="library">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="dependencies" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="add">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="version" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="references" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="add">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="optional" />
+                  <xs:attribute name="path" type="xs:string" use="optional" />
+                  <xs:attribute name="assembly" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="classes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="class">
+                <xs:complexType mixed="true">
+                  <xs:sequence minOccurs="0">
+                    <xs:element minOccurs="0" name="alias">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="value">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                        <xs:attribute name="integer" type="xs:boolean" use="optional" />
+                        <xs:attribute name="domElement" type="xs:boolean" use="optional" />
+                        <xs:attribute name="mayBeNull" type="xs:boolean" use="optional" />
+                        <xs:attribute name="elementType" type="xs:string" use="optional" />
+                        <xs:attribute name="elementInteger" type="xs:boolean" use="optional" />
+                        <xs:attribute name="elementDomElement" type="xs:boolean" use="optional" />
+                        <xs:attribute name="elementMayBeNull" type="xs:boolean" use="optional" />
+                        <xs:attribute name="locid" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="field">
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                        <xs:attribute name="integer" type="xs:boolean" use="optional" />
+                        <xs:attribute name="domElement" type="xs:boolean" use="optional" />
+                        <xs:attribute name="mayBeNull" type="xs:boolean" use="optional" />
+                        <xs:attribute name="elementType" type="xs:string" use="optional" />
+                        <xs:attribute name="elementInteger" type="xs:boolean" use="optional" />
+                        <xs:attribute name="elementDomElement" type="xs:boolean" use="optional" />
+                        <xs:attribute name="elementMayBeNull" type="xs:boolean" use="optional" />
+                        <xs:attribute name="locid" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="function">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="summary" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="locid" type="xs:string" use="optional" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" maxOccurs="unbounded" name="param">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="name" type="xs:string" use="required" />
+                                  <xs:attribute name="type" type="xs:string" use="optional" />
+                                  <xs:attribute name="mayBeNull" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="optional" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="integer" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="domElement" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="elementType" type="xs:string" use="optional" />
+                                  <xs:attribute name="elementInteger" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="elementDomElement" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="elementMayBeNull" type="xs:boolean" use="optional" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="returns">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="type" type="xs:string" use="optional" />
+                                  <xs:attribute name="integer" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="domElement" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="mayBeNull" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="elementType" type="xs:string" use="optional" />
+                                  <xs:attribute name="elementInteger" type="xs:boolean" use="optional" />
+                                  <xs:attribute name="elementDomElement" type="xs:string" use="optional" />
+                                  <xs:attribute name="elementMayBeNull" type="xs:boolean" use="optional" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="group" type="xs:string" use="optional" />
+                        <xs:attribute name="isConstructor" type="xs:boolean" use="optional" />
+                        <xs:attribute name="name" type="xs:string" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="description" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="version" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

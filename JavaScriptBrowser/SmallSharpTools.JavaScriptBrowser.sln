@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4ABE189B-69AC-41D3-B3DF-9141F950828B}"
+	ProjectSection(SolutionItems) = preProject
+		build.proj = build.proj
+		IntegrationTests.testrunconfig = IntegrationTests.testrunconfig
+		keys.reg = keys.reg
+		README.txt = README.txt
+		RunBuild.cmd = RunBuild.cmd
+		UnitTests.testrunconfig = UnitTests.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptBrowserPackage", "JavaScriptBrowserPackage\JavaScriptBrowserPackage.csproj", "{52EE7CF2-8A21-42E4-9C57-392C3913FE4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptBrowser_IntegrationTestProject", "JavaScriptBrowserPackage\JavaScriptBrowser_IntegrationTestProject\JavaScriptBrowser_IntegrationTestProject.csproj", "{B6B9917D-7767-4A5E-966E-14AD49A795FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptBrowser_UnitTestProject", "JavaScriptBrowserPackage\JavaScriptBrowser_UnitTestProject\JavaScriptBrowser_UnitTestProject.csproj", "{3CAC6835-A7D3-4DF4-AA27-257DA35BFDE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavaScriptBrowserControls", "JavaScriptBrowserControls\JavaScriptBrowserControls.csproj", "{842B7030-B15D-4DCE-8F6B-B843A375D72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandAloneApplication", "StandAloneApplication\StandAloneApplication.csproj", "{39D09460-28E5-48B4-B4D6-C4CE5E83088F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{1399C17C-3C48-493B-96E8-4A2CC422D50D}"
+	ProjectSection(SolutionItems) = preProject
+		Icons\layout.png = Icons\layout.png
+		Icons\script.ico = Icons\script.ico
+		Icons\script.png = Icons\script.png
+		Icons\script_add.png = Icons\script_add.png
+		Icons\script_delete.png = Icons\script_delete.png
+		Icons\wrench.png = Icons\wrench.png
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "StandAloneSetup", "StandAloneSetup\StandAloneSetup.vdproj", "{4444C604-741F-4B5A-AE7D-B361166ED5FE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PackageSetup", "PackageSetup\PackageSetup.vdproj", "{B497CC9E-BC8E-4C6E-8344-36024B5597FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevenvSetupCustomAction", "DevenvSetupCustomAction\DevenvSetupCustomAction.csproj", "{63065D8B-8713-4920-93E0-25C7CE8F83E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentationLibrary", "DocumentationLibrary\DocumentationLibrary.csproj", "{4A696B54-E328-4499-BBD5-B60B164F8C8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52EE7CF2-8A21-42E4-9C57-392C3913FE4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52EE7CF2-8A21-42E4-9C57-392C3913FE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52EE7CF2-8A21-42E4-9C57-392C3913FE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52EE7CF2-8A21-42E4-9C57-392C3913FE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6B9917D-7767-4A5E-966E-14AD49A795FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6B9917D-7767-4A5E-966E-14AD49A795FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAC6835-A7D3-4DF4-AA27-257DA35BFDE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAC6835-A7D3-4DF4-AA27-257DA35BFDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842B7030-B15D-4DCE-8F6B-B843A375D72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842B7030-B15D-4DCE-8F6B-B843A375D72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842B7030-B15D-4DCE-8F6B-B843A375D72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842B7030-B15D-4DCE-8F6B-B843A375D72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D09460-28E5-48B4-B4D6-C4CE5E83088F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D09460-28E5-48B4-B4D6-C4CE5E83088F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D09460-28E5-48B4-B4D6-C4CE5E83088F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D09460-28E5-48B4-B4D6-C4CE5E83088F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4444C604-741F-4B5A-AE7D-B361166ED5FE}.Debug|Any CPU.ActiveCfg = Debug
+		{4444C604-741F-4B5A-AE7D-B361166ED5FE}.Release|Any CPU.ActiveCfg = Release
+		{B497CC9E-BC8E-4C6E-8344-36024B5597FE}.Debug|Any CPU.ActiveCfg = Debug
+		{B497CC9E-BC8E-4C6E-8344-36024B5597FE}.Release|Any CPU.ActiveCfg = Release
+		{63065D8B-8713-4920-93E0-25C7CE8F83E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63065D8B-8713-4920-93E0-25C7CE8F83E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63065D8B-8713-4920-93E0-25C7CE8F83E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63065D8B-8713-4920-93E0-25C7CE8F83E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A696B54-E328-4499-BBD5-B60B164F8C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A696B54-E328-4499-BBD5-B60B164F8C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A696B54-E328-4499-BBD5-B60B164F8C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A696B54-E328-4499-BBD5-B60B164F8C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1399C17C-3C48-493B-96E8-4A2CC422D50D} = {4ABE189B-69AC-41D3-B3DF-9141F950828B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = 
+	EndGlobalSection
+EndGlobal

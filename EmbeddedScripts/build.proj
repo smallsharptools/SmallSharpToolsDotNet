@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NoWarn Condition="'$(NoWarn)'!=''">$(NoWarn),</NoWarn>
+    <NoWarn>$(NoWarn)MSB4078</NoWarn>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PackageName>SmallSharpTools.EmbeddedScripts</PackageName>
+    <TempDirectory>Temp</TempDirectory>
+    <ClassLibraryOutputDirectory>ClassLibrary\bin\$(Configuration)</ClassLibraryOutputDirectory>
+    <WebsiteBinDirectory>Website\bin</WebsiteBinDirectory>
+    <WebsiteDeployDirectory>Website_deploy</WebsiteDeployDirectory>
+    <ThirdPartyDirectory>ThirdParty</ThirdPartyDirectory>
+    <ZipFilename>$(PackageName)-$(Configuration).zip</ZipFilename>
+    <StagingDirectory>C:\Websites\SmallSharpTools.com\staging.smallsharptools.com\SmallSharpTools.EmbeddedScripts</StagingDirectory>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <Target Name="Clean">
+    <RemoveDir Directories="$(ClassLibraryOutputDirectory)" Condition="Exists('$(ClassLibraryOutputDirectory)')" />
+    <MSBuild Projects="ClassLibrary\ClassLibrary.csproj" Targets="Clean" />
+  </Target>
+  <Target Name="PreBuild">
+    <CreateItem Include="$(ThirdPartyDirectory)\**\*.*" Exclude="**\_svn\**\*.*">
+      <Output ItemName="WebsiteDependencies" TaskParameter="Include"/>
+    </CreateItem>
+    <MakeDir Directories="$(WebsiteBinDirectory)" Condition="!Exists('$(WebsiteBinDirectory)')"></MakeDir>
+    <Copy SourceFiles="@(WebsiteDependencies)"
+          DestinationFolder="$(WebsiteBinDirectory)"></Copy>
+  </Target>
+  <Target Name="Build" DependsOnTargets="PreBuild;Clean">
+    <MSBuild Projects="ClassLibrary\ClassLibrary.csproj" Targets="Build" />
+    <MSBuild Projects="$(WebsiteDeployDirectory)\Website_deploy.wdproj" Targets="Build" />
+  </Target>
+  <Target Name="DefinedCollections" DependsOnTargets="Build">
+    <CreateItem Include="$(ClassLibraryOutputDirectory)\**\*.*" Exclude="**\*.zip">
+      <Output ItemName="AssemblyFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(ThirdPartyDirectory)\**\*.*" Exclude="**\_svn\**\*.*">
+      <Output ItemName="ThirdPartyFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <CreateItem Include="$(WebsiteDeployDirectory)\$(Configuration)\**\*.*" Exclude="**\_svn\**\*.*">
+      <Output ItemName="WebsiteFiles" TaskParameter="Include"/>
+    </CreateItem>    
+  </Target>
+  <Target Name="Package" DependsOnTargets="Build;DefinedCollections">
+    <!-- copy file to temp directory -->
+    <MakeDir Directories="$(TempDirectory)" Condition="!Exists('$(TempDirectory)')" ContinueOnError="false"></MakeDir>
+    <Copy SourceFiles="README.txt" DestinationFolder="$(TempDirectory)"></Copy>
+    <Copy SourceFiles="@(AssemblyFiles)" 
+          DestinationFiles="@(AssemblyFiles->'$(TempDirectory)\Assemblies\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true"></Copy>
+    <Copy SourceFiles="@(ThirdPartyFiles)" 
+          DestinationFiles="@(ThirdPartyFiles->'$(TempDirectory)\ThirdParty\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true"></Copy>
+    <Copy SourceFiles="@(WebsiteFiles)" 
+          DestinationFiles="@(WebsiteFiles->'$(TempDirectory)\Website\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true"></Copy>
+
+    <CreateItem Include="$(TempDirectory)\**\*.*">
+      <Output ItemName="ZipFiles" TaskParameter="Include"/>
+    </CreateItem>
+
+    <Zip Files="@(ZipFiles)" ZipFileName="$(ZipFilename)" WorkingDirectory="$(TempDirectory)" />
+    <RemoveDir Directories="$(TempDirectory)" Condition="Exists('$(TempDirectory)')"></RemoveDir>
+  </Target>
+  <Target Name="Deploy" DependsOnTargets="Build;DefinedCollections" Condition="Exists('$(StagingDirectory)')">
+    <CreateItem Include="$(StagingDirectory)\**\*.*">
+      <Output ItemName="OldFiles" TaskParameter="Include"/>
+    </CreateItem>
+    <Delete Files="@(OldFiles)" TreatErrorsAsWarnings="true"></Delete>
+    <Copy SourceFiles="@(WebsiteFiles)"
+          DestinationFiles="@(WebsiteFiles->'$(StagingDirectory)\%(RecursiveDir)%(Filename)%(Extension)')" 
+          SkipUnchangedFiles="true" ContinueOnError="true"></Copy>
+  </Target>
+</Project>

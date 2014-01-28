@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<Import Project="$(MSBuildExtensionsPath)\SmallSharpTools.Tidy\MSBuild.Tidy.Targets" />
+
+	<PropertyGroup>
+		<SolutionDir Condition="'$(SolutionDir)' == ''">.</SolutionDir>
+
+		<InputDir>$(SolutionDir)\Samples\Input</InputDir>
+		<OutputDir>$(SolutionDir)\Samples\Output</OutputDir>
+	</PropertyGroup>
+	<ItemGroup>
+		<InputFiles Include="$(SourceDir)\*.html" />
+	</ItemGroup>
+	<Target Name="Build" DependsOnTargets="RunTidy">
+		   <!-- runs Tidy as a dependency target -->
+	</Target>
+	<Target Name="RunTidy">
+		<MakeDir Directories="$(OutputDir)" Condition="!Exists('$(OutputDir)')"></MakeDir>
+		<Tidy OptionFile="$(SolutionDir)\Samples\default.tidy"
+			  ErrorFile="$(SolutionDir)\Samples\errors.txt"
+			  InputFiles="@(InputFiles)"
+			  OutputFiles="@(InputFiles->'$(OutputDir)\%(RecursiveDir)%(Filename)%(Extension)')" />
+	</Target>
+</Project>

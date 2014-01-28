@@ -1,0 +1,25 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\9.0\InstalledProducts\JavaScriptBrowserPackage]
+@="#110"
+"Package"="{d57fed4f-f4ac-4e92-a60a-af36b2b421ac}"
+"ProductDetails"="#112"
+"PID"="1.0"
+"LogoID"="#400"
+[HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\9.0\Packages\{d57fed4f-f4ac-4e92-a60a-af36b2b421ac}]
+@="SmallSharpTools.JavaScriptBrowser.VSPackage.JavaScriptBrowserPackage, SmallSharpTools.JavaScriptBrowser.VSPackage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e28a1d133e7e15c5"
+"InprocServer32"="C:\\WINDOWS\\system32\\mscoree.dll"
+"Class"="SmallSharpTools.JavaScriptBrowser.VSPackage.JavaScriptBrowserPackage"
+"Assembly"="SmallSharpTools.JavaScriptBrowser.VSPackage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e28a1d133e7e15c5"
+[HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\9.0\Packages\{d57fed4f-f4ac-4e92-a60a-af36b2b421ac}]
+"ID"=dword:00000068
+"MinEdition"="Standard"
+"ProductVersion"="1.0.0.0"
+"ProductName"="JavaScript Browser"
+"CompanyName"="Offwhite.net LLC"
+[HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\9.0\Menus]
+"{d57fed4f-f4ac-4e92-a60a-af36b2b421ac}"=", 1000, 1"
+[HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\9.0\ToolWindows\{6fb0ff9c-da08-4d7e-a4de-fd8d2d388ec7}]
+@="{d57fed4f-f4ac-4e92-a60a-af36b2b421ac}"
+"Name"="SmallSharpTools.JavaScriptBrowser.VSPackage.JavaScriptBrowserWindow"
+

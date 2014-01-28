@@ -1,0 +1,9 @@
+Notes
+
+SmallSharpTools.Pipes will provide a set of repository pattern interfaces to access
+Twitter, YouTube and Flickr content for the purposes of aggregating the content to
+display on a web site or in an application.
+
+The implementions will be in separate class libraries and injected with IoC.
+
+The IoC implementation will be Unity from the Enterprise Library.

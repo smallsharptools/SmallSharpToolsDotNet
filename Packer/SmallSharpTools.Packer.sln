@@ -1,0 +1,85 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B823624D-D02B-4E91-B7F9-2AD80C3329C0}"
+	ProjectSection(SolutionItems) = preProject
+		build.proj = build.proj
+		MSBuild.Packer.Targets = MSBuild.Packer.Targets
+		README.txt = README.txt
+		RunBuild.cmd = RunBuild.cmd
+		RunCLITest.cmd = RunCLITest.cmd
+		RunTest.cmd = RunTest.cmd
+		sample.proj = sample.proj
+		Sample Files\sample2.js = Sample Files\sample2.js
+		Sample Files\sample3.js = Sample Files\sample3.js
+		SolutionInfo.cs = SolutionInfo.cs
+		test.proj = test.proj
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.csproj", "{8205ABD6-D6D5-41DC-965F-9B788E2D7752}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{79057FE7-4669-4F8D-ABF0-2BCA64EEF877}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{155538CC-3983-4D87-B2F8-5B6854FB460F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Files", "Sample Files", "{A2E73454-D403-44AC-AE5F-7598D83FEFAA}"
+	ProjectSection(SolutionItems) = preProject
+		Sample Files\sample.css = Sample Files\sample.css
+		Sample Files\sample.js = Sample Files\sample.js
+		Sample Files\sample2.css = Sample Files\sample2.css
+		Sample Files\sample3.css = Sample Files\sample3.css
+		Sample Files\web.config = Sample Files\web.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Output", "Output", "{EF89E984-A9A9-4EED-B280-F7F326D695E8}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{C4984DA2-0BC8-4F5E-AAA9-A12033D9DF9E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		ProjectReferences = "{155538CC-3983-4D87-B2F8-5B6854FB460F}|SmallSharpTools.Packer.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/Website"
+		Debug.AspNetCompiler.PhysicalPath = "Website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Website"
+		Release.AspNetCompiler.PhysicalPath = "Website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "4105"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8205ABD6-D6D5-41DC-965F-9B788E2D7752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8205ABD6-D6D5-41DC-965F-9B788E2D7752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8205ABD6-D6D5-41DC-965F-9B788E2D7752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8205ABD6-D6D5-41DC-965F-9B788E2D7752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79057FE7-4669-4F8D-ABF0-2BCA64EEF877}.Debug|Any CPU.ActiveCfg = Debug
+		{79057FE7-4669-4F8D-ABF0-2BCA64EEF877}.Release|Any CPU.ActiveCfg = Release
+		{155538CC-3983-4D87-B2F8-5B6854FB460F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155538CC-3983-4D87-B2F8-5B6854FB460F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155538CC-3983-4D87-B2F8-5B6854FB460F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155538CC-3983-4D87-B2F8-5B6854FB460F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4984DA2-0BC8-4F5E-AAA9-A12033D9DF9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4984DA2-0BC8-4F5E-AAA9-A12033D9DF9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4984DA2-0BC8-4F5E-AAA9-A12033D9DF9E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4984DA2-0BC8-4F5E-AAA9-A12033D9DF9E}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2E73454-D403-44AC-AE5F-7598D83FEFAA} = {B823624D-D02B-4E91-B7F9-2AD80C3329C0}
+		{EF89E984-A9A9-4EED-B280-F7F326D695E8} = {A2E73454-D403-44AC-AE5F-7598D83FEFAA}
+	EndGlobalSection
+EndGlobal

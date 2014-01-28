@@ -1,0 +1,2 @@
+jQuery
+http://jquery.com/

@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeCustomTool", "CompositeCustomTool\CompositeCustomTool.csproj", "{1F482951-B56F-4CAB-9B0A-69B0A40A578C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{B1AA57AA-871C-4875-BE71-F6350BC4CE88}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FC01D8E-2798-4B4A-B4A7-AE9B66AF3537}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		build.proj = build.proj
+		Composite.xsd = Composite.xsd
+		Composite.xsx = Composite.xsx
+		README.txt = README.txt
+	EndProjectSection
+	ProjectSection(FolderStartupServices) = postProject
+		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePackage", "CompositePackage\CompositePackage.csproj", "{07D088BD-BD4B-4E51-991B-87591052C87E}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeLibrary", "CompositeLibrary\CompositeLibrary.csproj", "{0FB25C22-741C-4F32-A6F3-89651655301C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TextTemplating) = postSolution
+		TextTemplating = 1
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F482951-B56F-4CAB-9B0A-69B0A40A578C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F482951-B56F-4CAB-9B0A-69B0A40A578C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F482951-B56F-4CAB-9B0A-69B0A40A578C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F482951-B56F-4CAB-9B0A-69B0A40A578C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AA57AA-871C-4875-BE71-F6350BC4CE88}.Debug|Any CPU.ActiveCfg = Debug
+		{B1AA57AA-871C-4875-BE71-F6350BC4CE88}.Release|Any CPU.ActiveCfg = Release
+		{07D088BD-BD4B-4E51-991B-87591052C87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D088BD-BD4B-4E51-991B-87591052C87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D088BD-BD4B-4E51-991B-87591052C87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D088BD-BD4B-4E51-991B-87591052C87E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FB25C22-741C-4F32-A6F3-89651655301C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FB25C22-741C-4F32-A6F3-89651655301C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FB25C22-741C-4F32-A6F3-89651655301C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FB25C22-741C-4F32-A6F3-89651655301C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

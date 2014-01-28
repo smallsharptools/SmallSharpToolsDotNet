@@ -1,0 +1,48 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    <table style="width: auto;">
+    <tr>
+    <td><h2>Administration</h2></td>
+    <td style="text-align: right;">
+        &nbsp;<asp:LoginStatus ID="LoginStatus2" runat="server" />
+    </td>
+    </tr>
+    <tr>
+    <td colspan="2">
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </td>
+    <tr>
+    <td colspan="2">
+    <hr />
+    <div style="width:550px;"></div>
+    </td>
+    </tr>
+    <tr>
+    
+    <td>
+    [
+    <asp:HyperLink ID="AdminHyperLink" runat="server" NavigateUrl="~/Admin/Default.aspx">Admin Home</asp:HyperLink> 
+    |
+    <asp:HyperLink ID="HomeHyperLink" runat="server" NavigateUrl="~/Default.aspx">Main Home</asp:HyperLink> 
+    ]
+    </td>
+    <td style="text-align: right;">
+        &nbsp;
+    </td>
+    </tr>
+    </table>
+    </div>
+    </form>
+</body>
+</html>

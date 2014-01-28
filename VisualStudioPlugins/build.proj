@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NoWarn Condition="'$(NoWarn)'!=''">$(NoWarn),</NoWarn>
+    <NoWarn>$(NoWarn)MSB4078</NoWarn>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SolutionDir Condition=" $(SolutionDir) == '' ">.</SolutionDir>
+    <ProgramFilesDir Condition=" $(ProgramFilesDir) == '' ">C:\Program Files</ProgramFilesDir>
+    <PackageName>VisualStudioPlugins</PackageName>
+    <DestinationDirectory>$(ProgramFilesDir)\SmallSharpTools.com\Composite Custom Tool\CustomTool</DestinationDirectory>
+    <CustomToolProjectDirectory>$(SolutionDir)\CompositeCustomTool</CustomToolProjectDirectory>
+  </PropertyGroup>
+  <!--<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />-->
+  <ItemGroup>
+    <SourceFiles Include="$(CustomToolProjectDirectory)/bin/$(Configuration)/*.*" />
+  </ItemGroup>
+  <Target Name="PostBuild">
+    <Message Text="Configuration = $(Configuration)" />
+    <Message Text="DestinationDirectory = $(DestinationDirectory)" />
+    <Message Text="CustomToolProjectDirectory = $(CustomToolProjectDirectory)" />
+    <Message Text="SourceFiles = @(SourceFiles)" />
+    <MakeDir Directories="$(DestinationDirectory)" Condition="!Exists('$(DestinationDirectory)')" />
+    <Copy SourceFiles="@(SourceFiles)" 
+          DestinationFolder="$(DestinationDirectory)" 
+          SkipUnchangedFiles="true" 
+          Condition="Exists('$(DestinationDirectory)')" />
+  </Target>
+</Project>

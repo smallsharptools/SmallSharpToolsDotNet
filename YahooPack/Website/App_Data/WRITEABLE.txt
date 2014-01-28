@@ -1,0 +1,3 @@
+This folder should be writable by the Application Pool.
+
+ASP.NET User or Network Service.  Check the IIS configuration.

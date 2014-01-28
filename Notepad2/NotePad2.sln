@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{6EB1019E-20F0-4EEB-8C2B-318B8C49FBBB}"
+	ProjectSection(SolutionItems) = preProject
+		msvcr70.dll = msvcr70.dll
+		msvcr70.zip = msvcr70.zip
+		Notepad2.exe = Notepad2.exe
+		Notepad2.ico = Notepad2.ico
+		Notepad2.ini = Notepad2.ini
+		Notepad2.reg = Notepad2.reg
+		Notepad2.txt = Notepad2.txt
+		notepad2.zip = notepad2.zip
+		README.txt = README.txt
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NotePad2Setup", "NotePad2Setup\NotePad2Setup.vdproj", "{A0A1D53E-10C9-470C-9FE4-BFC6614B18C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0A1D53E-10C9-470C-9FE4-BFC6614B18C9}.Debug|Default.ActiveCfg = Debug
+		{A0A1D53E-10C9-470C-9FE4-BFC6614B18C9}.Debug|Default.Build.0 = Debug
+		{A0A1D53E-10C9-470C-9FE4-BFC6614B18C9}.Release|Default.ActiveCfg = Release
+		{A0A1D53E-10C9-470C-9FE4-BFC6614B18C9}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

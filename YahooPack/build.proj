@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!-- Required Import to use MSBuild Community Tasks -->
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+
+  <PropertyGroup>
+    <NoWarn Condition="'$(NoWarn)'!=''">$(NoWarn),</NoWarn>
+    <NoWarn>$(NoWarn)MSB4078</NoWarn>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PackageName>SmallSharpTools.YahooPack</PackageName>
+    <WorkingDirectory>ClassLibrary\bin\$(Configuration)</WorkingDirectory>
+    <WebsiteOutputDirectory>Website_deploy\$(Configuration)</WebsiteOutputDirectory>
+    <ZipFilename>$(PackageName)-$(Configuration).zip</ZipFilename>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ZipFiles Include="$(WebsiteOutputDirectory)\**\*.*" Exclude="*.zip">
+    </ZipFiles>
+  </ItemGroup>
+  
+  <Target Name="Clean">
+    <RemoveDir Directories="$(WorkingDirectory)" Condition="Exists('$(WorkingDirectory)')" />
+    <RemoveDir Directories="$(WebsiteOutputDirectory)" Condition="Exists('$(WebsiteOutputDirectory)')" />
+    <MSBuild Projects="ClassLibrary\ClassLibrary.csproj" Targets="Clean"></MSBuild>
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="Clean">
+    <MSBuild Projects="ClassLibrary\ClassLibrary.csproj" Targets="Build"></MSBuild>
+    <MSBuild Projects="Website_deploy\Website_deploy.wdproj" Targets="Build"></MSBuild>
+  </Target>
+
+  <Target Name="Package">
+    <Zip Files="@(ZipFiles)" ZipFileName="$(ZipFilename)" WorkingDirectory="$(WebsiteOutputDirectory)" />
+  </Target>
+
+</Project>

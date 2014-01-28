@@ -1,0 +1,59 @@
+<!-- 
+  Microsoft Visual Studio 2005 Web Deployment Project 
+  http://go.microsoft.com/fwlink/?LinkId=55111
+-->
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.60403</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CF62CCA9-3C15-4514-A760-D8C654D02CC2}</ProjectGuid>
+    <SourceWebPhysicalPath>..\Website</SourceWebPhysicalPath>
+    <SourceWebProject>{15A84DE8-0104-44E3-8F11-FB7CD9C89272}|D:\Projects\SmallSharpTools\SmallSharpTools.EmbeddedScripts\Website</SourceWebProject>
+    <SourceWebVirtualPath>/Website</SourceWebVirtualPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.\Debug</OutputPath>
+    <EnableUpdateable>true</EnableUpdateable>
+    <UseMerge>true</UseMerge>
+    <SingleAssemblyName>SmallSharpToolsEmbeddedScriptsWebsite</SingleAssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>.\Release</OutputPath>
+    <EnableUpdateable>true</EnableUpdateable>
+    <UseMerge>true</UseMerge>
+    <SingleAssemblyName>SmallSharpToolsEmbeddedScriptsWebsite</SingleAssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageName>SmallSharpToolsEmbeddedScriptsWebsite</PackageName>
+    <PackagesFolder>C:\Packages</PackagesFolder>
+    <DeploymentFolder>$(PackagesFolder)\Deployed</DeploymentFolder>
+    <ZipFilename>$(PackageName).zip</ZipFilename>
+    <ZipFile>$(PackagesFolder)\$(ZipFilename)</ZipFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{9EAB7BCD-B236-48C2-A986-BA0261935049}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <DeployedFiles Include="$(DeploymentFolder)\**\*.*" />
+    <ZipFiles Include="$(Configuration)\**\*.*" Exclude="*.zip" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WebDeployment\v8.0\Microsoft.WebDeployment.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <Target Name="Package">
+    <Zip Files="@(ZipFiles)" ZipFileName="..\$(ZipFilename)" WorkingDirectory="$(Configuration)" />
+  </Target>
+  <Target Name="Deploy">
+    <Copy SourceFiles="..\$(ZipFilename)" DestinationFolder="$(PackagesFolder)" SkipUnchangedFiles="true" Condition="Exists('$(PackagesFolder)')" />
+    <MakeDir Directories="$(DeploymentFolder)" Condition="!Exists('$(DeploymentFolder)')" />
+    <MakeDir Directories="$(DeploymentFolder)\$(PackageName)" Condition="!Exists('$(DeploymentFolder)\$(PackageName)')" />
+    <Delete Files="@(DeployedFiles)" />
+    <Unzip ZipFileName="$(ZipFile)" TargetDirectory="$(DeploymentFolder)\$(PackageName)" />
+  </Target>
+</Project>
