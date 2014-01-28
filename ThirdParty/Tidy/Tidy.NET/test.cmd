@@ -1,0 +1,3 @@
+@cd TestTidy
+..\TestTidy
+@cd ..

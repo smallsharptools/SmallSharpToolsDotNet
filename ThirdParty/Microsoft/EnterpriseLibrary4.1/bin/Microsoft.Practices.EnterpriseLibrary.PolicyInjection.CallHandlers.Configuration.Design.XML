@@ -1,0 +1,752 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that represents the configuration
+            of an <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandler"/> in the Configuration
+            Console.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode"/> with empty
+            configuration information.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.AuthorizationCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode"/> with configuration
+            data read from the supplied <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.AuthorizationCallHandlerData"/>.
+            </summary>
+            <param name="callHandlerData"><see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.AuthorizationCallHandlerData"/> that
+            contains the configuration information for this handler.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Converts the information stored in the node and generate
+            the corresponding configuration element to store in
+            an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/>.
+            </summary>
+            <returns>Newly created <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.AuthorizationCallHandlerData"/> containing
+            the configuration data from this node.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.Dispose(System.Boolean)">
+            <summary>
+            <para>Releases the unmanaged resources used by the <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode"/> and optionally releases the managed resources.</para>
+            </summary>
+            <param name="disposing">
+            <para><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</para>
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.OnAuthorizationNodeRemoved(System.Object,Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNodeChangedEventArgs)">
+            <summary>
+            Clean up when authorization node is removed.
+            </summary>
+            <param name="sender">Source of event.</param>
+            <param name="e">EventArgs</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.ResolveNodeReferences(Microsoft.Practices.EnterpriseLibrary.Configuration.Design.IConfigurationUIHierarchy)">
+            <summary>
+            Updates the reference to the authorization node to point to the correct
+            instance stored in the hierarchy.
+            </summary>
+            <remarks>This method supports the internal Enterprise Library configuration console
+            and is not intended to be called by user code.</remarks>
+            <param name="hierarchy"><see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.IConfigurationUIHierarchy"/> to use to resolve
+            references.</param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.AuthorizationProvider">
+            <summary>
+            The authorization provider to use when performing the authorization operation.
+            </summary>
+            <value>Gets or sets the authorization provider.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.AuthorizationCallHandlerNode.OperationName">
+            <summary>
+            The operation name to use when performing the authorization operation.
+            </summary>
+            <value>Gets or sets the operation name to use as configured for the Security block.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that stores the configuration information
+            for the <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.CachingCallHandler"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode"/> with default configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.CachingCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode"/> initialized with the
+            configuration data stored in <paramref name="callHandlerData"/>.
+            </summary>
+            <param name="callHandlerData">Configuration data to initialize the node with.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Convert the data stored into this node into the corresponding
+            configuration class (<see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.CachingCallHandlerData"/>).
+            </summary>
+            <returns>Newly created <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.CachingCallHandlerData"/> containing
+            the configuration data from this node.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CachingCallHandlerNode.ExpirationTime">
+            <summary>
+            Sliding expiration time to expire items in the cache.
+            </summary>
+            <value>Sets or get the expiration time.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategoriesAttribute">
+            <summary>
+            Validation attribute for validating <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategoriesAttribute.ValidateCore(System.Object,System.Reflection.PropertyInfo,System.Collections.Generic.IList{Microsoft.Practices.EnterpriseLibrary.Configuration.Design.Validation.ValidationError})">
+            <summary>
+            Perform validation on the given <paramref name="instance"/>.
+            </summary>
+            <param name="instance">object to validate.</param>
+            <param name="propertyInfo">The underlying property to validate on the instance.</param>
+            <param name="errors">list to add errors to.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that stores the configuration information
+            for a call handler that doesn't have specific configuration console support..
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode"/> with default settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.Configuration.CustomCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode"/> with the supplied settings.
+            </summary>
+            <param name="callHandlerData">Settings read from configuration source for this handler.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Convert the data stored into this node into the corresponding
+            configuration class (<see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.Configuration.CustomCallHandlerData"/>).
+            </summary>
+            <returns>Newly created <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.Configuration.CustomCallHandlerData"/> containing
+            the configuration data from this node.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode.Attributes">
+            <summary>
+            List of editable attributes that will be used to configure the call handler.
+            </summary>
+            <value>List of attributes.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.CustomCallHandlerNode.Type">
+            <summary>
+            Specifies the type of call handler to create.
+            </summary>
+            <value>Type of call handler to create.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that represents the configuration
+            of an <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.ExceptionCallHandler"/> in the Configuration
+            Console.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode"/> with default configuration settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.ExceptionCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode"/> with the supplied settings.
+            </summary>
+            <param name="callHandlerData">Configuration settings for this call handler.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Converts the information stored in the node and generate
+            the corresponding configuration element to store in
+            an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/>.
+            </summary>
+            <returns>Newly created <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.ExceptionCallHandlerData"/> containing
+            the configuration data from this node.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.Dispose(System.Boolean)">
+            <summary>
+            <para>Releases the unmanaged resources used by the <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode"/> and optionally releases the managed resources.</para>
+            </summary>
+            <param name="disposing">
+            <para><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</para>
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.OnExceptionPolicyNodeRemoved(System.Object,Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNodeChangedEventArgs)">
+            <summary>
+            Clean up when referenced exception policy node is removed.
+            </summary>
+            <param name="sender">Source of event.</param>
+            <param name="e">EventArgs</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.ResolveNodeReferences(Microsoft.Practices.EnterpriseLibrary.Configuration.Design.IConfigurationUIHierarchy)">
+            <summary>
+            Updates the exception policy node reference to point to ones defined under
+            the exception handling block.
+            </summary>
+            <param name="hierarchy">Hierarchy to use to locate other exception policy nodes.</param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ExceptionCallHandlerNode.ExceptionPolicy">
+            <summary>
+            Name of exception policy to use.
+            </summary>
+            <value>Get or set exception policy Node.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that represents the configuration
+            of an <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.LogCallHandler"/> in the Configuration
+            Console.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode"/> with default settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.LogCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode"/> with the given settings.
+            </summary>
+            <param name="callHandlerData">Configuration information to initialize the node with.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Converts the information stored in the node and generate
+            the corresponding configuration element to store in
+            an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/>.
+            </summary>
+            <returns>Newly created <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.LogCallHandlerData"/> containing
+            the configuration data from this node.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.AfterMessage">
+            <summary>
+            Message to include when logging after the call has returned.
+            </summary>
+            <value>message string.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.BeforeMessage">
+            <summary>
+            Message to include when logging before the call occurs.
+            </summary>
+            <value>message string.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.Categories">
+            <summary>
+            Categories to use for the log message.
+            </summary>
+            <value>List of <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory"/>.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.EventId">
+            <summary>
+            EventId to log with.
+            </summary>
+            <value>integer event id.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.IncludeCallStack">
+            <summary>
+            Should the call stack be included in the log message?
+            </summary>
+            <value>true then yes, false then no.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.IncludeCallTime">
+            <summary>
+            Should the call duration be included in the log message?
+            </summary>
+            <value>true then yes, false then no.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.IncludeParameterValues">
+            <summary>
+            Should the parameter values be included in the log message?
+            </summary>
+            <value>true then yes, false then no.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.LogBehavior">
+            <summary>
+            When should logging occur.
+            </summary>
+            <value>Before call, after call or both.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.Priority">
+            <summary>
+            Priority of log entry.
+            </summary>
+            <value>integer priority.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode.Severity">
+            <summary>
+            Severity of log entry.
+            </summary>
+            <value>severity as indicated by the <see cref="T:System.Diagnostics.TraceEventType"/>.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory">
+            <summary>
+            Stores a single entry in the list of log categories configured by the <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCallHandlerNode"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory"/> with an empty string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory"/> with the given string.
+            </summary>
+            <param name="categoryName"><see cref="T:System.String"/> to use as the category.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory.ToString">
+            <summary>
+            Convert this node to a string.
+            </summary>
+            <returns><paramref name="CategoryName"/> of this instance.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.LogCategory.CategoryName">
+            <summary>
+            The category name.
+            </summary>
+            <value>Gets or sets the category name.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that handles the configuration
+            for the <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.PerformanceCounterCallHandler"/>
+            call handler.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.#ctor">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode"/>
+            with empty configuration data.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.PerformanceCounterCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode"/>
+            initialized from the configuration data given in <paramref name="callHandlerData"/>.
+            </summary>
+            <param name="callHandlerData">Source of configuration information.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Convert the data stored into this node into the corresponding
+            configuration class (<see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.PerformanceCounterCallHandlerData"/>).
+            </summary>
+            <returns>A configuration element to be stores into a configuration source.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.CategoryName">
+            <summary>
+            Performance counter category to update.
+            </summary>
+            <value>Performance counter category to update.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.IncrementAverageCallDuration">
+            <summary>
+            Update the "average call duration" counter.
+            </summary>
+            <value>true means update, false means don't.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.IncrementCallsPerSecond">
+            <summary>
+            Update the "calls per second" counter.
+            </summary>
+            <value>true means update, false means don't.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.IncrementExceptionsPerSecond">
+            <summary>
+            Update the "exceptions / second" counter.
+            </summary>
+            <value>true means update, false means don't.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.IncrementNumberOfCalls">
+            <summary>
+            Update the "Number Of Calls" counter.
+            </summary>
+            <value>true means update, false means don't.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.IncrementTotalExceptions">
+            <summary>
+            Update the "total # of exceptions" counter.
+            </summary>
+            <value>true means update, false means don't.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.InstanceName">
+            <summary>
+            Performance counter instance name to update.
+            </summary>
+            <value>
+            Performance counter instance name to update.
+            </value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PerformanceCounterCallHandlerNode.UseTotalCounter">
+            <summary>
+            Update "Total" instance counters as well as regular instances?
+            </summary>
+            <value>true means update the total, false means don't.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerCommandRegistrar">
+            <summary>
+            Command registrar class that adds the commands for the various call handler nodes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerCommandRegistrar.#ctor(System.IServiceProvider)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerCommandRegistrar"/> instance.
+            </summary>
+            <param name="serviceProvider"><see cref="T:System.IServiceProvider"/> to register with.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerCommandRegistrar.Register">
+            <summary>
+            Performs registration.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlersConfigurationDesignManager">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationDesignManager"/> that registers the
+            commands and node maps for the Policy Injection Block configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlersConfigurationDesignManager.Register(System.IServiceProvider)">
+            <summary>
+            Performs the registration of commands and node maps.
+            </summary>
+            <param name="serviceProvider"><see cref="T:System.IServiceProvider"/> to use to perform the registration.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerNodeMapRegistrar">
+            <summary>
+            Register node maps for the call handler nodes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerNodeMapRegistrar.#ctor(System.IServiceProvider)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerNodeMapRegistrar"/>
+            that registers using the given <see cref="T:System.IServiceProvider"/>.
+            </summary>
+            <param name="serviceProvider"><see cref="T:System.IServiceProvider"/> to use to register.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.PolicyInjectionCallHandlerNodeMapRegistrar.Register">
+            <summary>
+            Register the node maps used by the call handler nodes.
+            </summary>
+            <remarks>These node maps are used to map the sections in the
+            configuration file to the underlying node type used by the
+            config console.</remarks>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddAuthorizationCallHandlerCommandText">
+            <summary>
+              Looks up a localized string similar to Authorization Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddAuthorizationCallHandlerCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Authorization Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddCachingCallHandlerCommandText">
+            <summary>
+              Looks up a localized string similar to Caching Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddCachingCallHandlerCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Caching Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddCustomCallHandlerCommandText">
+            <summary>
+              Looks up a localized string similar to Custom Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddCustomCallHandlerCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Custom Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddExceptionCallHandleCommandText">
+            <summary>
+              Looks up a localized string similar to Exception Handling Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddExceptionCallHandleCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Exception Handling Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddLogCallHandlerCommandText">
+            <summary>
+              Looks up a localized string similar to Logging Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddLogCallHandlerCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Logging Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddPerformanceCounterCallHandlerCommandText">
+            <summary>
+              Looks up a localized string similar to Performance Counters Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddPerformanceCounterCallHandlerCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Performance Counters Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddValidationCallHandlerCommandText">
+            <summary>
+              Looks up a localized string similar to Validation Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AddValidationCallHandlerCommandTextLong">
+            <summary>
+              Looks up a localized string similar to Add Validation Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AfterMessageDescription">
+            <summary>
+              Looks up a localized string similar to The message which is logged after executing the method..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AuthorizationCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Authorization Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.AuthorizationProviderDescription">
+             <summary>
+               Looks up a localized string similar to The name of the authorization provider that is used to authenticate the caller.
+            
+            (none) indicates the default authorization provider should be used..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.BeforeMessageDescription">
+            <summary>
+              Looks up a localized string similar to The message which is logged before executing the method..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.CachingCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Caching Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.CategoriesDescription">
+            <summary>
+              Looks up a localized string similar to The names of the categories that is used for logging..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.CategoryGeneral">
+            <summary>
+              Looks up a localized string similar to General.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.CounterCategoryNameDescription">
+            <summary>
+              Looks up a localized string similar to The category name used for the performance counters..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.CustomCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Custom Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.ExceptionCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Exception Handling Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.ExceptionPolicyNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the exception policy that is used to handle exceptions..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.ExpirationTimeDescription">
+            <summary>
+              Looks up a localized string similar to The expiration time for cached values..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncludeCallStackDescription">
+            <summary>
+              Looks up a localized string similar to True if the callstack should be included in a logmessage, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncludeCallTimeDescription">
+            <summary>
+              Looks up a localized string similar to True if the calltime should be included in a logmessage, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncludeParameterValuesDescription">
+            <summary>
+              Looks up a localized string similar to True if the parameter values should be included in a logmessage, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncrementAverageCallDurationDescription">
+            <summary>
+              Looks up a localized string similar to True if a &apos;average seconds / call&apos; counter should be maintained, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncrementCallsPerSecondDescription">
+            <summary>
+              Looks up a localized string similar to True if a &apos;# calls / second&apos; counter should be maintained, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncrementExceptionsPerSecondDescription">
+            <summary>
+              Looks up a localized string similar to True if a &apos;# exceptions / second&apos; counter should be maintained, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncrementNumberOfCallsDescription">
+            <summary>
+              Looks up a localized string similar to True if a &apos;# of calls&apos; counter should be maintained, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.IncrementTotalExceptionsDescription">
+            <summary>
+              Looks up a localized string similar to True if a &apos;# of exceptions&apos; should be maintained, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.InstanceNameDescription">
+             <summary>
+               Looks up a localized string similar to The instance name used for the performance counters. 
+            
+            The value can contain the following tokens:  {appdomain}, {assembly}, {namespace}, {type}, {method}..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.LogBehaviorDescription">
+             <summary>
+               Looks up a localized string similar to Before if logging only should be done before the message is executed. 
+            After if logging should be done only after the message is executed. 
+            BeforeAndAfter if logging should be done both before and after the message is executed..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.LogCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Logging Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.LogCategoriesContainsDuplicateMatch">
+            <summary>
+              Looks up a localized string similar to The collection of categories contains a duplicate category..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.LogCategoriesContainsEmptyMatch">
+            <summary>
+              Looks up a localized string similar to The collection of categories contains an empty category..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.OperationNameDescription">
+             <summary>
+               Looks up a localized string similar to The name of the operation that is used to authenticate the caller.
+            
+            The value can contain the following tokens:  {appdomain}, {assembly}, {namespace}, {type}, {method}..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.PerformanceCounterCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Performance Counters Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.PriorityDescription">
+            <summary>
+              Looks up a localized string similar to The priority under which logging is done..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.RuleSetDescription">
+            <summary>
+              Looks up a localized string similar to The ruleset that should be used to validate. An empty string uses the default ruleset..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.SeverityDescription">
+            <summary>
+              Looks up a localized string similar to The severity under which logging is done..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.SpecificationSourceDescription">
+             <summary>
+               Looks up a localized string similar to Configuration if the configuration file as a source for validation. 
+            Attributes if the object metadata as a source for validation.
+            Both if both configuration and metadata as a source for validation..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.UseTotalCounterDescription">
+            <summary>
+              Looks up a localized string similar to True if a &apos;Total&apos; counter should be maintained, otherwise false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.Properties.Resources.ValidationCallHandlerNodeName">
+            <summary>
+              Looks up a localized string similar to Validation Handler.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode">
+            <summary>
+            A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Configuration.Design.ConfigurationNode"/> that represents the configuration
+            of an <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.ValidationCallHandler"/> in the Configuration
+            Console.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode"/> with default settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode.#ctor(Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.ValidationCallHandlerData)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode"/> with the given settings.
+            </summary>
+            <param name="callHandlerData">Configuration information to initialize the node with.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode.CreateCallHandlerData">
+            <summary>
+            Converts the information stored in the node and generate
+            the corresponding configuration element to store in
+            an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/>.
+            </summary>
+            <returns>Newly created <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.ValidationCallHandlerData"/> containing
+            the configuration data from this node.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode.RuleSet">
+            <summary>
+            Validation ruleset to use in the validation operation.
+            </summary>
+            <value>Get or set ruleset name.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.Configuration.Design.ValidationCallHandlerNode.SpecificationSource">
+            <summary>
+            Validation specification source.
+            </summary>
+            <value>Get or set source of validation (config, attributes, or both).</value>
+        </member>
+    </members>
+</doc>

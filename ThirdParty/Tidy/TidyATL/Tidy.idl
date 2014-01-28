@@ -1,0 +1,95 @@
+// Tidy.idl : IDL source for TidyATL.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TidyATL.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+#define SUPPORT_UTF16_ENCODINGS 1
+#define SUPPORT_ASIAN_ENCODINGS 1
+#define SUPPORT_ACCESSIBILITY_CHECKS 1
+#include "tidyenum.h"
+
+[custom(0F21F359-AB84-41e8-9A78-36D110E6D2F9, "Tidy.ReportLevel")]
+typedef TidyReportLevel ReportLevel;
+
+[custom(0F21F359-AB84-41e8-9A78-36D110E6D2F9, "Tidy.OptionId")]
+typedef TidyOptionId    OptionId;
+
+[
+	uuid(B5CF687E-9F77-4290-B864-B6348402085A),
+	version(1.0),
+	helpstring("Tidy 1.0 Type Library")
+]
+library TidyATL
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		object,
+		uuid(E0BE5E27-6BFC-4ABF-9A68-B77D8562D82F),
+		dual,
+		helpstring("ITidyDocument Interface"),
+		pointer_default(unique),
+        custom(0F21F359-AB84-41e8-9A78-36D110E6D2F9, "Tidy.IDocument")
+	]
+	interface ITidyDocument : IDispatch
+	{
+	    [id(1), helpstring("Load Tidy configuration file")]
+        HRESULT LoadConfig([in] BSTR configFilename, [out, retval] int* status);
+	    [id(2), helpstring("Parse markup file (HTML,XHTML,XML) ")]
+        HRESULT ParseFile([in] BSTR contentFilename, [out, retval] int* status);
+	    [id(3), helpstring("Save Tidied markup to a file")]
+        HRESULT SaveFile([in] BSTR contentFile, [out, retval] int* status);
+	    [id(4), helpstring("Fixup content according to options")]
+        HRESULT CleanAndRepair([out, retval] int* status);
+	    [id(5), helpstring("Run additional diagnostics per options")]
+        HRESULT RunDiagnostics([out, retval] int* status);
+	    [id(6), helpstring("Parse markup in string")]
+        HRESULT ParseString([in] BSTR content, [out, retval] int* status);
+	    [id(7), helpstring("Save Tidied markup to a string")]
+        HRESULT SaveString([out, retval] BSTR* putHere);
+	    [id(8), helpstring("Redirect error and warning messages to named file")]
+        HRESULT SetErrorFile([in] BSTR errorFilename, [out, retval] int* status);
+		[id(9), helpstring("Set option string value")]
+        HRESULT SetOptValue([in] OptionId optId, BSTR value, [out, retval] int* status);
+		[id(10), helpstring("Set option boolean value")]
+        HRESULT SetOptBool([in] OptionId optId, [in] bool value, [out, retval] int* status);
+		[id(11), helpstring("method SetOptInt")]
+        HRESULT SetOptInt([in] OptionId optId, [in] long value, [out, retval] int* status);
+		[id(12), helpstring("Get string option value")]
+        HRESULT GetOptValue([in] OptionId optId, [out, retval] BSTR* val);
+		[id(13), helpstring("Get boolean option value")]
+        HRESULT GetOptBool([in] OptionId optId, [out, retval] bool* val);
+		[id(14), helpstring("Get integer option value")]
+        HRESULT GetOptInt([in] OptionId optId, [out, retval] long* val);
+	};
+
+
+	[
+		uuid(D31D31B1-C6CE-4F8A-9043-1A118BB9F232),
+		helpstring("_ITidyDocumentEvents Interface"),
+        custom(0F21F359-AB84-41e8-9A78-36D110E6D2F9, "Tidy.IDocumentEvents")
+	]
+	dispinterface ITidyDocumentEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("Receive Tidy diagnostic message")]
+        HRESULT OnMessage([in] ReportLevel level, [in] long line, [in] long col, [in] BSTR message);
+	};
+
+	[
+		uuid(20A80B2B-6D69-40B7-A66A-D63C60B4878C),
+		helpstring("TidyDocument Class"),
+        custom(0F21F359-AB84-41e8-9A78-36D110E6D2F9, "Tidy.Document")
+	]
+	coclass TidyDocument
+	{
+		[default] interface ITidyDocument;
+		[default, source] dispinterface ITidyDocumentEvents;
+	};
+};

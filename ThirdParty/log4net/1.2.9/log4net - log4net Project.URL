@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://logging.apache.org/log4net/
+[InternetShortcut]
+URL=http://logging.apache.org/log4net/
+Modified=10630FB6A9BEC60166
